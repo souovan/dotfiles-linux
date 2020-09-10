@@ -1,2 +1,2 @@
-# dotfiles-linux
-Personal Linux dotfiles
+# Dotfiles-linux
+## Personal Linux dotfiles
