@@ -9,6 +9,6 @@
 
 # INSTALAÇÃO
 
-* Antes da cópia do `.bashrc` instalar (https://ohmybash.github.io/)[oh-my-bash] e (https://draculatheme.com/gnome-terminal/)[dracula theme for gnome terminal]
-* Após cópia do `.vimrc` executar o `:PluginInstall` e instalar o (https://draculatheme.com/gnome-terminal/)[dracula theme for vim]
+* Antes da cópia do `.bashrc` instalar [oh-my-bash](https://ohmybash.github.io/) e [dracula theme for gnome terminal](https://draculatheme.com/gnome-terminal/)
+* Após cópia do `.vimrc` executar o `:PluginInstall` e instalar o [dracula theme for vim](https://draculatheme.com/gnome-terminal/)
 * Copiar os arquivos para a pasta `$HOME(~)` renomeando os originais para .old
