@@ -12,7 +12,7 @@
  cd fonts
  install.sh
  ```
-* Instalar [VIM Vundle](git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim)
+* Copiar os arquivos de configuração do VIM Vundle `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
 * Instalar NodeJS `curl -sL install-node.now.sh/lts | bash`
 * Instalar [Yarn](https://classic.yarnpkg.com/en/docs/install/)
 * Copiar `.bashrc` e `.vimrc` para a pasta $HOME `~/` renomeando os arquivos originais ex.: `.bashrc.old`
