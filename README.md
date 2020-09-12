@@ -3,12 +3,17 @@
 
 # TODO
 
-* Melhorar essa documentação
-* Criar bashscript para instalação substituindo o dotfiles criando backup dos atuais.
-* Testar em diferentes distros linux
-
-# INSTALAÇÃO
-
-* Antes da cópia do `.bashrc` instalar [oh-my-bash](https://ohmybash.github.io/) e [dracula theme for gnome terminal](https://draculatheme.com/gnome-terminal/)
-* Após cópia do `.vimrc` executar o `:PluginInstall` e instalar o [dracula theme for vim](https://draculatheme.com/gnome-terminal/)
-* Copiar os arquivos para a pasta `$HOME(~)` renomeando os originais para .old
+* Instalar Oh-My-Bash `sh -c "$(curl -fsSL https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh)"`
+* Instalar [Dracula theme for gnome terminal](https://draculatheme.com/gnome-terminal/)
+* Instalar [Dracula theme for VIM](https://draculatheme.com/vim/)
+* Instalar Font for powerline:
+ ```
+ git clone https://github.com/powerline/fonts.git fonts
+ cd fonts
+ install.sh
+ ```
+* Instalar [VIM Vundle](git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim)
+* Instalar NodeJS `curl -sL install-node.now.sh/lts | bash`
+* Instalar [Yarn](https://classic.yarnpkg.com/en/docs/install/)
+* Copiar `.bashrc` e `.vimrc` para a pasta $HOME `~/` renomeando os arquivos originais ex.: `.bashrc.old`
+* No VIM executar o comando `:PluginInstall`
