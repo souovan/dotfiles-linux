@@ -1,5 +1,4 @@
-# Dotfiles-linux
-## Personal Linux dotfiles
+# Personal Linux dotfiles
 
 # TODO
 
