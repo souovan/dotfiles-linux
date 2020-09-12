@@ -1,6 +1,10 @@
 # Personal Linux dotfiles
 
-# TODO
+## TODO
+
+* Criar bashscript para automatizar a instalação das dependencias
+
+## INSTALAÇÃO MANUAL DAS DEPENDÊNCIAS
 
 * Instalar Oh-My-Bash `sh -c "$(curl -fsSL https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh)"`
 * Instalar [Dracula theme for gnome terminal](https://draculatheme.com/gnome-terminal/)
