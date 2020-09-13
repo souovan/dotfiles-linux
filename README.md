@@ -6,6 +6,9 @@
 
 ## INSTALAÇÃO MANUAL DAS DEPENDÊNCIAS
 
+* Clonar este repositório
+* Instalar o GIT
+* Instalar o VIM
 * Instalar Oh-My-Bash `sh -c "$(curl -fsSL https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh)"`
 * Instalar [Dracula theme for gnome terminal](https://draculatheme.com/gnome-terminal/)
 * Instalar [Dracula theme for VIM](https://draculatheme.com/vim/)
@@ -15,8 +18,19 @@
  cd fonts
  install.sh
  ```
+* Instalar a Font `Droid Sans Mono Nerd`
 * Copiar os arquivos de configuração do VIM Vundle `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
 * Instalar NodeJS `curl -sL install-node.now.sh/lts | bash`
 * Instalar [Yarn](https://classic.yarnpkg.com/en/docs/install/)
 * Copiar `.bashrc` e `.vimrc` para a pasta $HOME `~/` renomeando os arquivos originais ex.: `.bashrc.old`
 * No VIM executar o comando `:PluginInstall`
+
+# SCREENSHOTS
+
+![Exemplo ll & git status](ll-gitstatus.png)
+
+![Exemplo git add](gitadd.png)
+
+![Exemplo vim-python-syntax with nerdtree](vim-python-nerdtree.png)
+
+![Exemplo vim-markdown-syntax with nerdtree](vim-readme-nerdtree.png)
