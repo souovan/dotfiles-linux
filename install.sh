@@ -2,19 +2,19 @@
 
 # Verificar a distro Linux
 # Red Hat (Fedora/CentOS)
-Redhat=$(cat /etc/redhat-release)
+# cat /etc/redhat-release
 # Debian(confirmar)/Ubuntu ou ElementaryOS
-Debian=$(cat /etc/issue)
+# cat /etc/issue
 
-if [[ $Redhat == *"Fedora"* ]]; then
+if [[ $(cat /etc/redhat-release) == *"Fedora"* ]]; then
   echo "Contém Fedora" 
 fi
 
-if [[ $Debian == *"Ubuntu"* ]]; then
+if [[ $(cat /etc/issue) == *"Ubuntu"* ]]; then
   echo "Contém Ubuntu"
 fi
 
-if [[ $Debian == *"elementary"* ]]; then
+if [[ $(cat /etc/issue) == *"elementary"* ]]; then
   echo "Contém ElementaryOS"
 fi
 
