@@ -6,16 +6,12 @@
 # Debian(confirmar)/Ubuntu ou ElementaryOS
 # cat /etc/issue
 
-if [[ $(cat /etc/redhat-release) == *"Fedora"* ]]; then
-  echo "Contém Fedora" 
-fi
-
 if [[ $(cat /etc/issue) == *"Ubuntu"* ]]; then
   echo "Contém Ubuntu"
-fi
-
-if [[ $(cat /etc/issue) == *"elementary"* ]]; then
+elif [[ $(cat /etc/issue) == *"elementary"* ]]; then
   echo "Contém ElementaryOS"
+elif [[ $(cat /etc/redhat-release) == *"Fedora"* ]]; then
+  echo "Contém Fedora"
 fi
 
 #Instala oh-my-bash
