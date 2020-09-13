@@ -27,10 +27,10 @@
 
 # SCREENSHOTS
 
-![](ll-gitstatus.png)
+![](./imgs/ll-gitstatus.png)
 
-![](gitadd.png)
+![](./imgs/gitadd.png)
 
-![](vim-python-nerdtree.png)
+![](./imgs/vim-python-nerdtree.png)
 
-![](vim-readme-nerdtree.png)
+![](./imgs/vim-readme-nerdtree.png)
