@@ -27,10 +27,10 @@
 
 # SCREENSHOTS
 
-![Exemplo ll & git status](ll-gitstatus.png)
+![ll & git status](ll-gitstatus.png)
 
-![Exemplo git add](gitadd.png)
+![git add](gitadd.png)
 
-![Exemplo vim-python-syntax with nerdtree](vim-python-nerdtree.png)
+![vim-python-syntax with nerdtree](vim-python-nerdtree.png)
 
-![Exemplo vim-markdown-syntax with nerdtree](vim-readme-nerdtree.png)
+![vim-markdown-syntax with nerdtree](vim-readme-nerdtree.png)
