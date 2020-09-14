@@ -6,18 +6,18 @@
 # Debian(confirmar) ou Ubuntu ou ElementaryOS
 # cat /etc/issue
 
-if [[ $(cat /etc/issue) == *"Ubuntu"* ]]; then
-#  echo "Contém Ubuntu"
-  sudo -i apt install git && sudo -i apt install vim && sudo -i apt install yarn && sudo -i apt install dconf-cli
-elif [[ $(cat /etc/issue) == *"elementary"* ]]; then
-#  echo "Contém ElementaryOS"
-  sudo -i apt install git && sudo -i apt install vim && sudo -i apt install yarn && sudo -i apt install dconf-cli
-elif [[ $(cat /etc/issue) == *"Debian"* ]]; then
-#  echo "Contém Debian"
-  sudo -i apt install git && sudo -i apt install vim && sudo -i apt install yarn && sudo -i apt install dconf-cli
+if [[ $(cat /etc/issue) == *"Debian"* ]] || [[ $(cat /etc/issue) == *"Ubuntu"* ]] || [[ $(cat /etc/issue) == *"elementary"* ]]; then
+
+  curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+  echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+  sudo -i apt update && sudo -i apt install git && sudo -i apt install vim && sudo -i apt install yarn && sudo -i apt install dconf-cli
+
 else [[ $(cat /etc/redhat-release) == *"Fedora"* ]]
-#  echo "Contém Fedora"
+
+  curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
+  curl --silent --location https://rpm.nodesource.com/setup_12.x | sudo bash -
   sudo -i dnf install git && sudo -i dnf install vim && sudo -i dnf install yarn && sudo -i dnf install dconf*
+
 fi
 
 #Instala oh-my-bash (testar, provavelmente terá que ser instalado a parte)
@@ -33,7 +33,7 @@ else
   cd $HOME/dotfiles-linux
 fi
 
-if [ -e ]; then
+if [ -e $HOME/.vim/pack/themes/opt/dracula ]; then
   echo " ~ Dracula Theme para VIM já está instalado"
 else
   mkdir ~/.vim/pack/themes/opt
@@ -64,14 +64,6 @@ else
   cd $HOME
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
   cd -
-fi
-
-# Instala o NodeJS
-if [[ $(node --version) == *"v12"* ]]; then
-  echo " ~ O NodeJS já está instalado"
-else
-  echo " !! Por favor instale o NodeJS como root com o comando 'curl -sL install-node.now.sh/lts | bash'"
-  echo " + Fim da instalação do NodeJS"
 fi
 
 if [ -e $HOME/.bashrc ]; then

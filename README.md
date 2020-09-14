@@ -1,8 +1,13 @@
-# Personal Linux dotfiles
+# Meus dotfiles linux
 
-## TODO
+## INSTALAÇÃO (QUASE)AUTOMÁTICA DAS DEPENDÊNCIAS
 
-* Criar bashscript para automatizar a instalação das dependencias
+* Execute como **root** (sudo su) o comando `curl -sL install-node.now.sh/lts | bash`
+
+`git clone https://github.com/souovan/dotfiles-linux.git`
+`cd dotfiles-linux`
+`./install.sh`
+
 
 ## INSTALAÇÃO MANUAL DAS DEPENDÊNCIAS
 
@@ -21,7 +26,7 @@
  ```
 * Instalar a Font `Droid Sans Mono Nerd`
 * Copiar os arquivos de configuração do VIM Vundle `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
-* Instalar NodeJS, a instalação deverá ser feita como *root*: com o comando `sudo su -` depois `curl -sL install-node.now.sh/lts | bash`
+* Instalar NodeJS, a instalação deverá ser feita como **root** (sudo su) o comando `curl -sL install-node.now.sh/lts | bash`
 * Instalar [Yarn](https://classic.yarnpkg.com/en/docs/install/)
 * Copiar `.bashrc` e `.vimrc` para a pasta $HOME `~/` renomeando os arquivos originais ex.: `.bashrc.old`
 * No VIM executar o comando `:PluginInstall`
