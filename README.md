@@ -10,7 +10,7 @@
   cd dotfiles-linux
   ./install.sh
   ```
-
+* No Debian e Ubuntu troque a fonte do terminal para alguma font powerline de sua escolha
 
 ## INSTALAÇÃO MANUAL DAS DEPENDÊNCIAS
 
