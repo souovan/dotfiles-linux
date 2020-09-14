@@ -2,7 +2,7 @@
 
 ## INSTALAÇÃO (QUASE)AUTOMÁTICA DAS DEPENDÊNCIAS
 
-* Instale o NodeJS como **root** (sudo su) com o comando `curl -sL install-node.now.sh/lts | bash`
+* Instale o NodeJS como **root** (geralmente com `sudo su` ou somente `su` no Debian) com o comando `curl -sL install-node.now.sh/lts | bash`
 * Instale os dotfiles:
 
   ``` 

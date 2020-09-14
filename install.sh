@@ -6,22 +6,28 @@
 # Debian(confirmar) ou Ubuntu ou ElementaryOS
 # cat /etc/issue
 
-if [[ $(cat /etc/issue) == *"Debian"* ]] || [[ $(cat /etc/issue) == *"Ubuntu"* ]] || [[ $(cat /etc/issue) == *"elementary"* ]]; then
+if [[ $(cat /etc/issue) == *"Debian"* ]]; then
+  
+  su -c apt update && su -c apt install curl && su -c apt install vim && su -c apt install yarn && su -c apt install dconf-cli
+  curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+  echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+
+elif  [[ $(cat /etc/issue) == *"Ubuntu"* ]] || [[ $(cat /etc/issue) == *"elementary"* ]]
 
   curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
   echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-  sudo -i apt update && sudo -i apt install git && sudo -i apt install vim && sudo -i apt install yarn && sudo -i apt install dconf-cli
+  sudo -i apt update && sudo -i apt install curl && sudo -i apt install vim && sudo -i apt install yarn && sudo -i apt install dconf-cli
 
 else [[ $(cat /etc/redhat-release) == *"Fedora"* ]]
 
   curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
   curl --silent --location https://rpm.nodesource.com/setup_12.x | sudo bash -
-  sudo -i dnf install git && sudo -i dnf install vim && sudo -i dnf install yarn && sudo -i dnf install dconf*
+  sudo -i dnf install vim && sudo -i dnf install yarn && sudo -i dnf install dconf*
 
 fi
 
 #Instala oh-my-bash (testar, provavelmente terá que ser instalado a parte)
-#sh -c "$(curl -fsSL https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 
 if [ -e $HOME/gnome-terminal ]; then
   echo " ~ Dracula Theme para Gnome Terminal já está instalado"
