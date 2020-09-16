@@ -59,7 +59,6 @@ Plugin 'shougo/neocomplete.vim'
 "Syntax highlightimg and autocomplete
 Plugin 'othree/html5.vim'
 Plugin 'hail2u/vim-css3-syntax'
-Plugin 'dcousens/vim-js'
 Plugin 'leshill/vim-json'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
