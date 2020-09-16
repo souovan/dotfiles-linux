@@ -8,7 +8,7 @@
 
 if [[ $(cat /etc/issue) == *"Debian"* ]]; then
   
-  su -c "apt update" && su -c "apt install vim" && su -c "apt install yarn" && su root -c "apt install dconf-cli"
+  su -c "apt update" && su -c "apt install vim" && su -c "apt install yarn" && su -c "apt install dconf-cli"
   curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | su -c "apt-key add -"
   echo "deb https://dl.yarnpkg.com/debian/ stable main" | su -c "tee /etc/apt/sources.list.d/yarn.list"
 
@@ -28,7 +28,7 @@ fi
 
 #Instala oh-my-bash (testar, provavelmente terá que ser instalado a parte)
 if [[ $(cat /etc/issue) == *"Debian"* ]]; then
-	su root -c "$(curl -fsSL https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+	su -c "$(curl -fsSL https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 else
 	sh -c "$(curl -fsSL https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 fi
@@ -41,26 +41,29 @@ else
   cd gnome-terminal
   ./install.sh
   cd $HOME/dotfiles-linux
+  echo " + Dracula Theme para Gnome Terminal Instalado com sucesso!"
 fi
 
 if [ -e $HOME/.vim/pack/themes/opt/dracula ]; then
   echo " ~ Dracula Theme para VIM já está instalado"
 else
-  mkdir ~/.vim/pack/themes/opt
+  mkdir -p ~/.vim/pack/themes/opt
   cd ~/.vim/pack/themes/opt
   git clone https://github.com/dracula/vim.git dracula
   cd $HOME/dotfiles-linux
+  echo " + Dracula Theme para VIM instalado com sucesso!"
 fi
 
 # Instala Fonts para Powerline
 if [ -e $HOME/fonts ]; then
-  echo " ~ O Pacote de Fontes já está instalado"
+  echo " ~ O Pacote de Fontes Nerd já está instalado"
 else
   cd $HOME
   git clone https://github.com/powerline/fonts.git fonts
   cd fonts
   ./install.sh
   cd $HOME/dotfiles-linux
+  echo " + Pacote de Fontes Nerd instalado com sucesso!"
 fi
 
 # Instala Font Droid Sans Mono Nerd to Linux fonts directory
@@ -69,29 +72,30 @@ cp "Droid Sans Mono Nerd Font Complete.otf" "$font_dir/"
 
 # Copia os arquivos de configuração do VIM Vundle
 if [ -e $HOME/.vim/bundle/Vundle.vim ]; then
-  echo " ~ O Vundle já está instalado"
+  echo " ~ O VIM Vundle já está instalado"
 else
   cd $HOME
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
   cd -
+  echo " + VIM Vundle instalado com sucesso!"
 fi
 
 if [ -e $HOME/.bashrc ]; then
-  echo " + Backup do .bashrc feito e arquivo substituido"
   mv $HOME/.bashrc $HOME/.bashrc.old
   cp ./.bashrc $HOME/
+  echo " + .bashrc substituido original renomeado para .bashrc.old"
 fi
 
 if [ -e $HOME/.vimrc ]; then
-  echo " + Backup do .vimrc feito e arquivo substituido"
   mv $HOME/.vimrc $HOME/.vimrc.old
   cp ./.vimrc $HOME/
 else
 # echo "Não existe o arquivo .vimrc"
   cp ./.vimrc $HOME/
+  echo " + .vimrc substituido original renomeado para .vimrc.old"
 fi
 
-echo " ############################################"
-echo " # Dotfiles-linux instalado com sucesso !!! #"
-echo " ############################################"
+echo " ################################################"
+echo " # Instalação dos Dotfiles-linux finalizada !!! #"
+echo " ################################################"
 
