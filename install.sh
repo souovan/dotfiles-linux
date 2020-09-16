@@ -12,17 +12,32 @@ if [[ $(cat /etc/issue) == *"Debian"* ]]; then
   curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | su -c "apt-key add -"
   echo "deb https://dl.yarnpkg.com/debian/ stable main" | su -c "tee /etc/apt/sources.list.d/yarn.list"
 
-elif  [[ $(cat /etc/issue) == *"Ubuntu"* ]] || [[ $(cat /etc/issue) == *"elementary"* ]]; then
+elif  [[ $(cat /etc/issue) == *"Ubuntu"* ]]; then
 
   curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
   echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-  sudo -i apt update && sudo -i apt install vim && sudo -i apt install yarn && sudo -i apt install dconf-cli
+  sudo -i apt update && sudo -i apt install vim -y && sudo -i apt install yarn -y && sudo -i apt install dconf-cli -y
+
+elif [[ $(cat /etc/issue) == *"elementary"* ]]; then
+
+  curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+  echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+  sudo -i apt update && sudo -i apt install vim -y && sudo -i apt install yarn -y  && sudo -i apt install dconf-cli -y
+
+  # Handmade Dracula Theme for ElementaryOS Console
+  gsettings set org.pantheon.terminal.settings font "Fira Mono for Powerline Regular"
+  
+  gsettings set org.pantheon.terminal.settings palette "#262626:#E356A7:#42E66C:#E4F34A:#9B6BDF:#E64747:#75D7EC:#EFA554:#7A7A7A:#FF79C6:#50FA7B:#F1FA8C:#BD93F9:#FF5555:#8BE9FD:#FFB86C"
+  gsettings set org.pantheon.terminal.settings foreground "#F8F8F2"
+  gsettings set org.pantheon.terminal.settings background "rgba(40, 42, 54, .95)"
+  gsettings set org.pantheon.terminal.settings cursor-color "#6E46A4"
+  gsettings set org.pantheon.terminal.settings follow-last-tab "true"
 
 else [[ $(cat /etc/redhat-release) == *"Fedora"* ]]
 
   curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
   curl --silent --location https://rpm.nodesource.com/setup_12.x | sudo bash -
-  sudo -i dnf install vim && sudo -i dnf install yarn && sudo -i dnf install dconf*
+  sudo -i dnf install vim -y && sudo -i dnf install yarn -y  && sudo -i dnf install dconf* -y
 
 fi
 
