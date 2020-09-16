@@ -8,7 +8,7 @@
 
 if [[ $(cat /etc/issue) == *"Debian"* ]]; then
   
-  su -c "apt update" && su -c "apt install vim" && su -c "apt install yarn" && su -c "apt install dconf-cli"
+  su -c "apt update && apt install vim && apt install yarn && apt install dconf-cli"
   curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | su -c "apt-key add -"
   echo "deb https://dl.yarnpkg.com/debian/ stable main" | su -c "tee /etc/apt/sources.list.d/yarn.list"
 
@@ -27,11 +27,7 @@ else [[ $(cat /etc/redhat-release) == *"Fedora"* ]]
 fi
 
 #Instala oh-my-bash (testar, provavelmente terá que ser instalado a parte)
-if [[ $(cat /etc/issue) == *"Debian"* ]]; then
-	su -c "$(curl -fsSL https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh)"
-else
-	sh -c "$(curl -fsSL https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh)"
-fi
+sh -c "$(curl -fsSL https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 
 if [ -e $HOME/gnome-terminal ]; then
   echo " ~ Dracula Theme para Gnome Terminal já está instalado"
