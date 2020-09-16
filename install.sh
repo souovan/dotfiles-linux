@@ -83,16 +83,17 @@ fi
 if [ -e $HOME/.bashrc ]; then
   mv $HOME/.bashrc $HOME/.bashrc.old
   cp ./.bashrc $HOME/
-  echo " + .bashrc substituido original renomeado para .bashrc.old"
+else
+  cp ./.bashrc $HOME/
+  echo " + .bashrc substituido, original renomeado para .bashrc.old"
 fi
 
 if [ -e $HOME/.vimrc ]; then
   mv $HOME/.vimrc $HOME/.vimrc.old
   cp ./.vimrc $HOME/
 else
-# echo "Não existe o arquivo .vimrc"
   cp ./.vimrc $HOME/
-  echo " + .vimrc substituido original renomeado para .vimrc.old"
+  echo " + .vimrc substituido, original renomeado para .vimrc.old"
 fi
 
 echo " ################################################"
