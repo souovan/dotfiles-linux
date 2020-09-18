@@ -3,7 +3,7 @@
 # Verificar a distro Linux
 # Red Hat (Fedora/CentOS)
 # cat /etc/redhat-release
-# Debian(confirmar) ou Ubuntu ou ElementaryOS
+# Debian ou Ubuntu ou ElementaryOS
 # cat /etc/issue
 
 if [[ $(cat /etc/issue) == *"Debian"* ]]; then
@@ -26,15 +26,28 @@ elif [[ $(cat /etc/issue) == *"elementary"* ]]; then
   curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
   echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
   sudo -i apt update && sudo -i apt install vim -y && sudo -i apt install yarn -y  && sudo -i apt install dconf-cli -y
+  sudo -i curl -sL install-node.now.sh/lts | sudo -i bash
 
-# Handmade Dracula Theme for ElementaryOS Console
+if [[ $(cat /etc/issue) == *"elementary OS Hera"* ]]; then
+# Handmade Dracula Theme for Olds ElementaryOS Console
+  gsettings set io.elementary.terminal.settings font "Fira Mono for Powerline Regular"
+  
+  gsettings set io.elementary.terminal.settings palette "#262626:#E356A7:#42E66C:#E4F34A:#9B6BDF:#E64747:#75D7EC:#EFA554:#7A7A7A:#FF79C6:#50FA7B:#F1FA8C:#BD93F9:#FF5555:#8BE9FD:#FFB86C"
+  gsettings set io.elementary.terminal.settings foreground "#F8F8F2"
+  gsettings set io.elementary.terminal.settings background "rgba(40, 42, 54, .95)"
+  gsettings set io.elementary.terminal.settings cursor-color "#6E46A4"
+  gsettings set io.elementary.terminal.settings follow-last-tab "true"
+
+else
+# Handmade Dracula Theme for ElementaryOS Hera
   gsettings set org.pantheon.terminal.settings font "Fira Mono for Powerline Regular"
   
-  gsettings set org.pantheon.terminal.settings palette "#262626:#E356A7:#42E66C:#E4F34A:#9B6BDF:#E64747:#75D7EC:#EFA554:#7A7A7A:#FF79C6:#50FA7B:#F1FA8C:#BD93F9:#FF5555:#8BE9FD:#FFB86C"
+  gsettings set org.pantheon.terminal.settings palette "#262626:#E356A7:#42E66C:#E4F34A:#9B6BDF:#E64747:#75D7EC:#EFA554:#7A7A7A:#FF79C6:#5OFA7B:#F1FA8C:#BD93F9:#FF5555:#8BE9FD:#FFB86C"
   gsettings set org.pantheon.terminal.settings foreground "#F8F8F2"
   gsettings set org.pantheon.terminal.settings background "rgba(40, 42, 54, .95)"
   gsettings set org.pantheon.terminal.settings cursor-color "#6E46A4"
   gsettings set org.pantheon.terminal.settings follow-last-tab "true"
+fi
 
 else [[ $(cat /etc/redhat-release) == *"Fedora"* ]]
 
@@ -47,7 +60,7 @@ fi
 
 #Instala oh-my-bash (testar, provavelmente terá que ser instalado a parte)
 sh -c "$(curl -fsSL https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh)" &
-echo " Pressione ENTER para continuar a instalação..."
+#echo " Pressione ENTER para continuar a instalação..."
 
 if [ -e $HOME/gnome-terminal ]; then
   echo " ~ Dracula Theme para Gnome Terminal já está instalado"
