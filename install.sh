@@ -7,10 +7,13 @@
 # cat /etc/issue
 
 if [[ $(cat /etc/issue) == *"Debian"* ]]; then
-  
-  su -c "apt update && apt install vim && apt install yarn && apt install dconf-cli"
-  curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | su -c "apt-key add -"
-  echo "deb https://dl.yarnpkg.com/debian/ stable main" | su -c "tee /etc/apt/sources.list.d/yarn.list"
+
+  su -c "curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -"
+  su -c 'echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list'
+  su -c "apt update && apt install vim -y && apt install yarn -y  && apt install dconf-cli -y"
+
+# Instala NodeJS (testar e inserir ubuntu, elementaryos e fedora)
+su -c "curl -sL install-node.now.sh/lts | bash"
 
 elif  [[ $(cat /etc/issue) == *"Ubuntu"* ]]; then
 
@@ -24,7 +27,7 @@ elif [[ $(cat /etc/issue) == *"elementary"* ]]; then
   echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
   sudo -i apt update && sudo -i apt install vim -y && sudo -i apt install yarn -y  && sudo -i apt install dconf-cli -y
 
-  # Handmade Dracula Theme for ElementaryOS Console
+# Handmade Dracula Theme for ElementaryOS Console
   gsettings set org.pantheon.terminal.settings font "Fira Mono for Powerline Regular"
   
   gsettings set org.pantheon.terminal.settings palette "#262626:#E356A7:#42E66C:#E4F34A:#9B6BDF:#E64747:#75D7EC:#EFA554:#7A7A7A:#FF79C6:#50FA7B:#F1FA8C:#BD93F9:#FF5555:#8BE9FD:#FFB86C"
