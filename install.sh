@@ -12,7 +12,7 @@ if [[ $(cat /etc/issue) == *"Debian"* ]]; then
   su -c 'echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list'
   su -c "apt update && apt install vim -y && apt install yarn -y  && apt install dconf-cli -y"
 
-# Instala NodeJS (testar e inserir ubuntu, elementaryos e fedora)
+# Instala NodeJS (testar e inserir ubuntu, elementaryos)
 su -c "curl -sL install-node.now.sh/lts | bash"
 
 elif  [[ $(cat /etc/issue) == *"Ubuntu"* ]]; then
@@ -41,11 +41,13 @@ else [[ $(cat /etc/redhat-release) == *"Fedora"* ]]
   curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
   curl --silent --location https://rpm.nodesource.com/setup_12.x | sudo bash -
   sudo -i dnf install vim -y && sudo -i dnf install yarn -y  && sudo -i dnf install dconf* -y
+  sudo -i curl -sL install-node.now.sh/lts | sudo -i bash
 
 fi
 
 #Instala oh-my-bash (testar, provavelmente terá que ser instalado a parte)
-sh -c "$(curl -fsSL https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh)" &
+echo " Pressione ENTER para continuar a instalação..."
 
 if [ -e $HOME/gnome-terminal ]; then
   echo " ~ Dracula Theme para Gnome Terminal já está instalado"
