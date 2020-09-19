@@ -2,7 +2,6 @@
 
 ## INSTALAÇÃO (QUASE)AUTOMÁTICA DAS DEPENDÊNCIAS
 
-* Instale o NodeJS como **root** (geralmente com `sudo su` ou somente `su` no Debian) com o comando `curl -sL install-node.now.sh/lts | bash`
 * Instale os dotfiles:
 
   ``` 
@@ -11,6 +10,7 @@
   ./install.sh
   ```
 * No Debian e Ubuntu troque a fonte do terminal para alguma font powerline de sua escolha
+* Abra o VIM e execute o comando `:PluginInstall`
 
 ## INSTALAÇÃO MANUAL DAS DEPENDÊNCIAS
 

@@ -1,4 +1,21 @@
 #!/usr/bin/env bash
+# User colors, mas só se está conectado a um terminal e se ele aceitar cores
+if which tput >/dev/null 2>&1; then 
+  ncolors=$(tput colors) 
+fi
+if [ -t 1 ] && [ -n "$ncolors" ] && [ "$ncolors" -ge 8 ]; then 
+  RED="$(tput setaf 5)"
+  GREEN="$(tput setaf 2)"
+  YELLOW="$(tput setaf 3)"
+  BLUE="$(tput setaf 4)"
+  NORMAL="$(tput sgr0)" 
+else
+  RED=""
+  GREEN=""
+  YELLOW=""
+  BLUE=""
+fi
+
 
 # Verificar a distro Linux
 # Red Hat (Fedora/CentOS)
@@ -8,25 +25,44 @@
 
 if [[ $(cat /etc/issue) == *"Debian"* ]]; then
 
+  su -c "apt update && apt install curl -y"	
   su -c "curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -"
   su -c 'echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list'
-  su -c "apt update && apt install vim -y && apt install yarn -y  && apt install dconf-cli -y"
-
-# Instala NodeJS (testar e inserir ubuntu, elementaryos)
-su -c "curl -sL install-node.now.sh/lts | bash"
+  su -c "apt install vim -y && apt install yarn -y  && apt install dconf-cli -y"
+  if [[ ! $(node --version) == *"v12."* ]];then
+    su -c "curl -sL install-node.now.sh/lts | bash"
+  fi
 
 elif  [[ $(cat /etc/issue) == *"Ubuntu"* ]]; then
+ 
+  if ! type curl > /dev/null; then
+    sudo -i apt update && sudo -i apt install curl -y
+  fi
+  
+  sudo -i curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo -i apt-key add -
+  echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo -i tee /etc/apt/sources.list.d/yarn.list
+  
+  if ! type curl > /dev/null && ! type vim > /dev/null && ! type yarn > /dev/null; then
+    sudo -i apt install vim -y && sudo -i apt install yarn -y && sudo -i apt install dconf-cli -y
+  else
+    printf "${YELLOW} ~ curl, vim e yarn já estão instalados${NORMAL}\n"
+  fi
 
-  curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-  echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-  sudo -i apt update && sudo -i apt install vim -y && sudo -i apt install yarn -y && sudo -i apt install dconf-cli -y
+  if [[ ! $(node --version) == *"v12."* ]];then
+    sudo -i curl -sL install-node.now.sh/lts | sudo -i bash
+  else
+    printf "${YELLOW} ~ NodeJS v12+ já está instalado!${NORMAL}\n"
+  fi
 
 elif [[ $(cat /etc/issue) == *"elementary"* ]]; then
 
+  sudo -i apt update && sudo -i apt install curl -y
   curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
   echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-  sudo -i apt update && sudo -i apt install vim -y && sudo -i apt install yarn -y  && sudo -i apt install dconf-cli -y
-  sudo -i curl -sL install-node.now.sh/lts | sudo -i bash
+  sudo -i apt install vim -y && sudo -i apt install yarn -y  && sudo -i apt install dconf-cli -y
+  if [[ ! $(node --version) == *"v12."* ]];then
+    sudo -i curl -sL install-node.now.sh/lts | sudo -i bash
+  fi
 
 if [[ $(cat /etc/issue) == *"elementary OS Hera"* ]]; then
 # Handmade Dracula Theme for Olds ElementaryOS Console
@@ -54,45 +90,45 @@ else [[ $(cat /etc/redhat-release) == *"Fedora"* ]]
   curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
   curl --silent --location https://rpm.nodesource.com/setup_12.x | sudo bash -
   sudo -i dnf install vim -y && sudo -i dnf install yarn -y  && sudo -i dnf install dconf* -y
-  sudo -i curl -sL install-node.now.sh/lts | sudo -i bash
-
+  if [[ ! $(node --version) == *"v12."* ]];then
+    sudo -i curl -sL install-node.now.sh/lts | sudo -i bash
+  fi
 fi
 
 #Instala oh-my-bash (testar, provavelmente terá que ser instalado a parte)
-sh -c "$(curl -fsSL https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh)" &
-#echo " Pressione ENTER para continuar a instalação..."
+sh -c "$(curl -fsSL https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh)" # && echo " Pressione ENTER para continuar.."
 
 if [ -e $HOME/gnome-terminal ]; then
-  echo " ~ Dracula Theme para Gnome Terminal já está instalado"
+  printf "${YELLOW} ~ Dracula Theme para Gnome Terminal já está instalado${NORMAL}\n"
 else
   cd $HOME
   git clone https://github.com/dracula/gnome-terminal
   cd gnome-terminal
   ./install.sh
   cd $HOME/dotfiles-linux
-  echo " + Dracula Theme para Gnome Terminal Instalado com sucesso!"
+  printf "${BLUE} + Dracula Theme para Gnome Terminal Instalado com sucesso!${NORMAL}\n"
 fi
 
 if [ -e $HOME/.vim/pack/themes/opt/dracula ]; then
-  echo " ~ Dracula Theme para VIM já está instalado"
+  printf "${YELLOW} ~ Dracula Theme para VIM já está instalado${NORMAL}\n"
 else
   mkdir -p ~/.vim/pack/themes/opt
   cd ~/.vim/pack/themes/opt
   git clone https://github.com/dracula/vim.git dracula
   cd $HOME/dotfiles-linux
-  echo " + Dracula Theme para VIM instalado com sucesso!"
+  printf "${BLUE} + Dracula Theme para VIM instalado com sucesso!${NORMAL}\n"
 fi
 
 # Instala Fonts para Powerline
 if [ -e $HOME/fonts ]; then
-  echo " ~ O Pacote de Fontes Nerd já está instalado"
+  printf "${YELLOW} ~ O Pacote de Fontes Nerd já está instalado${NORMAL}\n"
 else
   cd $HOME
   git clone https://github.com/powerline/fonts.git fonts
   cd fonts
   ./install.sh
   cd $HOME/dotfiles-linux
-  echo " + Pacote de Fontes Nerd instalado com sucesso!"
+  printf "${BLUE} + Pacote de Fontes Nerd instalado com sucesso!${NORMAL}\n"
 fi
 
 # Instala Font Droid Sans Mono Nerd to Linux fonts directory
@@ -101,12 +137,12 @@ cp "Droid Sans Mono Nerd Font Complete.otf" "$font_dir/"
 
 # Copia os arquivos de configuração do VIM Vundle
 if [ -e $HOME/.vim/bundle/Vundle.vim ]; then
-  echo " ~ O VIM Vundle já está instalado"
+  printf "${YELLOW} ~ O VIM Vundle já está instalado${NORMAL}\n"
 else
   cd $HOME
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
   cd -
-  echo " + VIM Vundle instalado com sucesso!"
+  printf "${BLUE} + VIM Vundle instalado com sucesso!${NORMAL}\n"
 fi
 
 if [ -e $HOME/.bashrc ]; then
@@ -114,7 +150,7 @@ if [ -e $HOME/.bashrc ]; then
   cp ./.bashrc $HOME/
 else
   cp ./.bashrc $HOME/
-  echo " + .bashrc substituido, original renomeado para .bashrc.old"
+  printf "${BLUE} + .bashrc substituido, original renomeado para .bashrc.old${NORMAL}\n"
 fi
 
 if [ -e $HOME/.vimrc ]; then
@@ -122,10 +158,10 @@ if [ -e $HOME/.vimrc ]; then
   cp ./.vimrc $HOME/
 else
   cp ./.vimrc $HOME/
-  echo " + .vimrc substituido, original renomeado para .vimrc.old"
+  echo "${BLUE} + .vimrc substituido, original renomeado para .vimrc.old${NORMAL}\n"
 fi
 
-echo " ################################################"
-echo " # Instalação dos Dotfiles-linux finalizada !!! #"
-echo " ################################################"
-
+printf "${GREEN} ################################################${NORMAL}\n"
+printf "${GREEN} # Instalação dos Dotfiles-linux finalizada !!! #${NORMAL}\n"
+printf "${GREEN} ################################################${NORMAL}\n"
+exec bash; source $HOME/.bashrc
