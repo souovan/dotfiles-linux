@@ -25,10 +25,18 @@ fi
 
 if [[ $(cat /etc/issue) == *"Debian"* ]]; then
 
-  su -c "apt update && apt install curl -y"	
+  if ! type curl > /dev/null; then
+    su -c "apt update && apt install curl -y"
+  fi
+
   su -c "curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -"
   su -c 'echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list'
-  su -c "apt install vim -y && apt install yarn -y  && apt install dconf-cli -y"
+  if ! type curl > /dev/null && ! type vim > /dev/null && ! type yarn > /dev/null; then
+    su -c "apt install vim -y && apt install yarn -y  && apt install dconf-cli -y"
+  else
+    printf "${YELLOW} ~ curl, vim e yarn já estão instalados${NORMAL}\n"
+  fi
+
   if [[ ! $(node --version) == *"v12."* ]];then
     su -c "curl -sL install-node.now.sh/lts | bash"
   fi
@@ -56,10 +64,19 @@ elif  [[ $(cat /etc/issue) == *"Ubuntu"* ]]; then
 
 elif [[ $(cat /etc/issue) == *"elementary"* ]]; then
 
-  sudo -i apt update && sudo -i apt install curl -y
+  if ! type curl > /dev/null; then
+    sudo -i apt update && sudo -i apt install curl -y
+  fi
+
   curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
   echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-  sudo -i apt install vim -y && sudo -i apt install yarn -y  && sudo -i apt install dconf-cli -y
+
+  if ! type curl > /dev/null && ! type vim > /dev/null && ! type yarn > /dev/null
+    sudo -i apt install vim -y && sudo -i apt install yarn -y  && sudo -i apt install dconf-cli -y
+  else
+    printf "${YELLOW} ~ curl, vim e yarn já estão instalados${NORMAL}\n"
+  fi
+
   if [[ ! $(node --version) == *"v12."* ]];then
     sudo -i curl -sL install-node.now.sh/lts | sudo -i bash
   fi
