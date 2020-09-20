@@ -25,91 +25,100 @@ fi
 
 if [[ $(cat /etc/issue) == *"Debian"* ]]; then
 
-  if ! type curl > /dev/null; then
-    su -c "apt update && apt install curl -y"
+    if ! type curl &> /dev/null; then
+      su -c "apt update && apt install curl -y"
+    fi
+
+#    su -c "curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -"
+#    su -c 'echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list'
+    if ! type curl &> /dev/null && ! type vim &> /dev/null && ! type yarn &> /dev/null; then
+      su -c "apt install vim -y && apt install yarn -y  && apt install dconf-cli -y"
+    else
+      printf "${YELLOW} ~ curl, vim e yarn já estão instalados${NORMAL}\n"
+    fi
+
+#    if [[ ! $(node --version) == *"v12."* ]];then
+#      su -c "curl -sL install-node.now.sh/lts | bash"
+#    fi
+
+  elif  [[ $(cat /etc/issue) == *"Ubuntu"* ]]; then
+   
+    if ! type curl &> /dev/null; then
+      sudo -i apt update && sudo -i apt install curl -y
+    fi
+    
+#    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+#    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+    
+    if ! type curl &> /dev/null && ! type vim &> /dev/null && ! type yarn &> /dev/null; then
+      sudo -i apt install vim -y && sudo -i apt install yarn -y && sudo -i apt install dconf-cli -y
+    else
+      printf "${YELLOW} ~ curl, vim e yarn já estão instalados${NORMAL}\n"
+    fi
+
+#    if [[ ! $(node --version) == *"v12."* ]];then
+#      sudo -i curl -sL install-node.now.sh/lts | sudo -i bash
+#    else
+#      printf "${YELLOW} ~ NodeJS v12+ já está instalado!${NORMAL}\n"
+#    fi
+
+  elif [[ $(cat /etc/issue) == *"elementary"* ]]; then
+
+    if ! type curl &> /dev/null; then
+      sudo -i apt update && sudo -i apt install curl -y
+    fi
+
+#    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+#    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+
+    if ! type curl &> /dev/null && ! type vim &> /dev/null && ! type yarn &> /dev/null; then
+      sudo -i apt install vim -y && sudo -i apt install yarn -y  && sudo -i apt install dconf-cli -y
+    else
+      printf "${YELLOW} ~ curl, vim e yarn já estão instalados${NORMAL}\n"
+    fi
+
+#    if [[ ! $(node --version) == *"v12."* ]];then
+#      sudo -i curl -sL install-node.now.sh/lts | sudo -i bash
+#    fi
+
+  if [[ $(cat /etc/issue) == *"elementary OS Hera"* ]]; then
+  # Handmade Dracula Theme for Olds ElementaryOS Console
+    gsettings set io.elementary.terminal.settings font "Fira Mono for Powerline Regular"
+    
+    gsettings set io.elementary.terminal.settings palette "#262626:#E356A7:#42E66C:#E4F34A:#9B6BDF:#E64747:#75D7EC:#EFA554:#7A7A7A:#FF79C6:#50FA7B:#F1FA8C:#BD93F9:#FF5555:#8BE9FD:#FFB86C"
+    gsettings set io.elementary.terminal.settings foreground "#F8F8F2"
+    gsettings set io.elementary.terminal.settings background "rgba(40, 42, 54, .95)"
+    gsettings set io.elementary.terminal.settings cursor-color "#6E46A4"
+    gsettings set io.elementary.terminal.settings follow-last-tab "true"
+
+  else
+  # Handmade Dracula Theme for ElementaryOS Hera
+    gsettings set org.pantheon.terminal.settings font "Fira Mono for Powerline Regular"
+    
+    gsettings set org.pantheon.terminal.settings palette "#262626:#E356A7:#42E66C:#E4F34A:#9B6BDF:#E64747:#75D7EC:#EFA554:#7A7A7A:#FF79C6:#5OFA7B:#F1FA8C:#BD93F9:#FF5555:#8BE9FD:#FFB86C"
+    gsettings set org.pantheon.terminal.settings foreground "#F8F8F2"
+    gsettings set org.pantheon.terminal.settings background "rgba(40, 42, 54, .95)"
+    gsettings set org.pantheon.terminal.settings cursor-color "#6E46A4"
+    gsettings set org.pantheon.terminal.settings follow-last-tab "true"
   fi
 
-  su -c "curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -"
-  su -c 'echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list'
-  if ! type curl > /dev/null && ! type vim > /dev/null && ! type yarn > /dev/null; then
-    su -c "apt install vim -y && apt install yarn -y  && apt install dconf-cli -y"
+  else [[ $(cat /etc/redhat-release) == *"Fedora"* ]]
+
+    if ! type curl &> /dev/null; then
+     sudo -i dnf install curl -y
+  fi
+#  curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
+#  curl --silent --location https://rpm.nodesource.com/setup_12.x | sudo bash -
+
+  if ! type curl &> /dev/null && ! type vim &> /dev/null && ! type yarn &> /dev/null && ! type dconf &> /dev/null; then
+    sudo -i dnf install vim -y && sudo -i dnf install yarn -y  && sudo -i dnf install dconf* -y
   else
     printf "${YELLOW} ~ curl, vim e yarn já estão instalados${NORMAL}\n"
   fi
 
-  if [[ ! $(node --version) == *"v12."* ]];then
-    su -c "curl -sL install-node.now.sh/lts | bash"
-  fi
-
-elif  [[ $(cat /etc/issue) == *"Ubuntu"* ]]; then
- 
-  if ! type curl > /dev/null; then
-    sudo -i apt update && sudo -i apt install curl -y
-  fi
-  
-  sudo -i curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo -i apt-key add -
-  echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo -i tee /etc/apt/sources.list.d/yarn.list
-  
-  if ! type curl > /dev/null && ! type vim > /dev/null && ! type yarn > /dev/null; then
-    sudo -i apt install vim -y && sudo -i apt install yarn -y && sudo -i apt install dconf-cli -y
-  else
-    printf "${YELLOW} ~ curl, vim e yarn já estão instalados${NORMAL}\n"
-  fi
-
-  if [[ ! $(node --version) == *"v12."* ]];then
-    sudo -i curl -sL install-node.now.sh/lts | sudo -i bash
-  else
-    printf "${YELLOW} ~ NodeJS v12+ já está instalado!${NORMAL}\n"
-  fi
-
-elif [[ $(cat /etc/issue) == *"elementary"* ]]; then
-
-  if ! type curl > /dev/null; then
-    sudo -i apt update && sudo -i apt install curl -y
-  fi
-
-  curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-  echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-
-  if ! type curl > /dev/null && ! type vim > /dev/null && ! type yarn > /dev/null
-    sudo -i apt install vim -y && sudo -i apt install yarn -y  && sudo -i apt install dconf-cli -y
-  else
-    printf "${YELLOW} ~ curl, vim e yarn já estão instalados${NORMAL}\n"
-  fi
-
-  if [[ ! $(node --version) == *"v12."* ]];then
-    sudo -i curl -sL install-node.now.sh/lts | sudo -i bash
-  fi
-
-if [[ $(cat /etc/issue) == *"elementary OS Hera"* ]]; then
-# Handmade Dracula Theme for Olds ElementaryOS Console
-  gsettings set io.elementary.terminal.settings font "Fira Mono for Powerline Regular"
-  
-  gsettings set io.elementary.terminal.settings palette "#262626:#E356A7:#42E66C:#E4F34A:#9B6BDF:#E64747:#75D7EC:#EFA554:#7A7A7A:#FF79C6:#50FA7B:#F1FA8C:#BD93F9:#FF5555:#8BE9FD:#FFB86C"
-  gsettings set io.elementary.terminal.settings foreground "#F8F8F2"
-  gsettings set io.elementary.terminal.settings background "rgba(40, 42, 54, .95)"
-  gsettings set io.elementary.terminal.settings cursor-color "#6E46A4"
-  gsettings set io.elementary.terminal.settings follow-last-tab "true"
-
-else
-# Handmade Dracula Theme for ElementaryOS Hera
-  gsettings set org.pantheon.terminal.settings font "Fira Mono for Powerline Regular"
-  
-  gsettings set org.pantheon.terminal.settings palette "#262626:#E356A7:#42E66C:#E4F34A:#9B6BDF:#E64747:#75D7EC:#EFA554:#7A7A7A:#FF79C6:#5OFA7B:#F1FA8C:#BD93F9:#FF5555:#8BE9FD:#FFB86C"
-  gsettings set org.pantheon.terminal.settings foreground "#F8F8F2"
-  gsettings set org.pantheon.terminal.settings background "rgba(40, 42, 54, .95)"
-  gsettings set org.pantheon.terminal.settings cursor-color "#6E46A4"
-  gsettings set org.pantheon.terminal.settings follow-last-tab "true"
-fi
-
-else [[ $(cat /etc/redhat-release) == *"Fedora"* ]]
-
-  curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
-  curl --silent --location https://rpm.nodesource.com/setup_12.x | sudo bash -
-  sudo -i dnf install vim -y && sudo -i dnf install yarn -y  && sudo -i dnf install dconf* -y
-  if [[ ! $(node --version) == *"v12."* ]];then
-    sudo -i curl -sL install-node.now.sh/lts | sudo -i bash
-  fi
+#  if [[ ! $(node --version) == *"v12."* ]];then
+#    sudo -i curl -sL install-node.now.sh/lts | sudo -i bash
+#  fi
 fi
 
 #Instala oh-my-bash (testar, provavelmente terá que ser instalado a parte)
@@ -146,6 +155,10 @@ else
   ./install.sh
   cd $HOME/dotfiles-linux
   printf "${BLUE} + Pacote de Fontes Nerd instalado com sucesso!${NORMAL}\n"
+fi
+
+if [[ $(cat /etc/issue) == *"Ubuntu"* ]]; then
+  gsettings set org.gnome.terminal.settings font "Ubuntu Mono derivative Powerline Regular"
 fi
 
 # Instala Font Droid Sans Mono Nerd to Linux fonts directory
