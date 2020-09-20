@@ -106,7 +106,7 @@ if [[ $(cat /etc/issue) == *"Debian"* ]]; then
 
     if ! type curl &> /dev/null; then
      sudo -i dnf install curl -y
-  fi
+    fi
 #  curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
 #  curl --silent --location https://rpm.nodesource.com/setup_12.x | sudo bash -
 
@@ -122,7 +122,7 @@ if [[ $(cat /etc/issue) == *"Debian"* ]]; then
 fi
 
 #Instala oh-my-bash (testar, provavelmente terá que ser instalado a parte)
-sh -c "$(curl -fsSL https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh)" # && echo " Pressione ENTER para continuar.."
+#sh -c "$(curl -fsSL https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 
 if [ -e $HOME/gnome-terminal ]; then
   printf "${YELLOW} ~ Dracula Theme para Gnome Terminal já está instalado${NORMAL}\n"
@@ -157,7 +157,7 @@ else
   printf "${BLUE} + Pacote de Fontes Nerd instalado com sucesso!${NORMAL}\n"
 fi
 
-if [[ $(cat /etc/issue) == *"Ubuntu"* ]]; then
+if [[ $(cat /etc/issue) == *"Ubuntu"* ]] && [[ $(cat /etc/isse) == *"Debian"* ]]; then
   gsettings set org.gnome.terminal.settings font "Ubuntu Mono derivative Powerline Regular"
 fi
 
@@ -188,7 +188,7 @@ if [ -e $HOME/.vimrc ]; then
   cp ./.vimrc $HOME/
 else
   cp ./.vimrc $HOME/
-  echo "${BLUE} + .vimrc substituido, original renomeado para .vimrc.old${NORMAL}\n"
+  printf "${BLUE} + .vimrc substituido, original renomeado para .vimrc.old${NORMAL}\n"
 fi
 
 printf "${GREEN} ################################################${NORMAL}\n"

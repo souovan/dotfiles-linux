@@ -2,6 +2,11 @@
 
 ## INSTALAÇÃO (QUASE)AUTOMÁTICA DAS DEPENDÊNCIAS
 
+* Instale o `curl`
+* Instale o Oh-my-bash:
+  ```
+  sh -c "$(curl -fsSL https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+  ```
 * Instale os dotfiles:
 
   ``` 
@@ -15,8 +20,8 @@
 ## INSTALAÇÃO MANUAL DAS DEPENDÊNCIAS
 
 * Clonar este repositório
-* Instalar o GIT
-* Instalar o VIM
+* Instalar o `curl`
+* Instalar o `vim`
 * Instalar Oh-My-Bash `sh -c "$(curl -fsSL https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh)"`
 * Instalar [Dracula theme for gnome terminal](https://draculatheme.com/gnome-terminal/)
   * Instalar `dconf-cli` no Fedora: `sudo dnf install dconf*`
@@ -28,9 +33,7 @@
  install.sh
  ```
 * Instalar a Font `Droid Sans Mono Nerd`
-* Copiar os arquivos de configuração do VIM Vundle `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
-* Instalar NodeJS como  **root** (sudo su) com o comando `curl -sL install-node.now.sh/lts | bash`
-* Instalar [Yarn](https://classic.yarnpkg.com/en/docs/install/)
+* Clonar os arquivos de configuração do VIM Vundle `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
 * Copiar `.bashrc` e `.vimrc` para a pasta $HOME `~/` renomeando os arquivos originais ex.: `.bashrc.old`
 * No VIM executar o comando `:PluginInstall`
 
