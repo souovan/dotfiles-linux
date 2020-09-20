@@ -55,11 +55,7 @@ filetype plugin indent on    " required
 Plugin 'ap/vim-css-color'
 " Syntax highlightimg and autocomplete
 Plugin 'sheerun/vim-polyglot'
-"Plugin 'neoclide/coc.nvim', {'branch': 'release'} " Code completion
-"Plugin 'shougo/neocomplete.vim'
-"Plugin 'othree/html5.vim'
-"Plugin 'hail2u/vim-css3-syntax'
-"Plugin 'leshill/vim-json'
+Plugin 'dense-analysis/ale'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
 "Plugin 'hdima/python-syntax'

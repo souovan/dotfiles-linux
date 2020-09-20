@@ -25,61 +25,28 @@ fi
 
 if [[ $(cat /etc/issue) == *"Debian"* ]]; then
 
-    if ! type curl &> /dev/null; then
-      su -c "apt update && apt install curl -y"
-    fi
 
-#    su -c "curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -"
-#    su -c 'echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list'
-    if ! type curl &> /dev/null && ! type vim &> /dev/null && ! type yarn &> /dev/null; then
-      su -c "apt install vim -y && apt install yarn -y  && apt install dconf-cli -y"
+    if ! type vim &> /dev/null; then
+      su -c "apt install vim -y && apt install dconf-cli -y"
     else
-      printf "${YELLOW} ~ curl, vim e yarn já estão instalados${NORMAL}\n"
+      printf "${YELLOW} ~ vim e dconf-cli já estão instalados${NORMAL}\n"
     fi
-
-#    if [[ ! $(node --version) == *"v12."* ]];then
-#      su -c "curl -sL install-node.now.sh/lts | bash"
-#    fi
 
   elif  [[ $(cat /etc/issue) == *"Ubuntu"* ]]; then
    
-    if ! type curl &> /dev/null; then
-      sudo -i apt update && sudo -i apt install curl -y
-    fi
-    
-#    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-#    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-    
-    if ! type curl &> /dev/null && ! type vim &> /dev/null && ! type yarn &> /dev/null; then
-      sudo -i apt install vim -y && sudo -i apt install yarn -y && sudo -i apt install dconf-cli -y
+    if ! type vim &> /dev/null && ! type dconf &> /dev/null; then
+      sudo -i apt install vim -y && sudo -i apt install dconf-cli -y
     else
-      printf "${YELLOW} ~ curl, vim e yarn já estão instalados${NORMAL}\n"
+      printf "${YELLOW} ~ vim e dconf-cli já estão instalados${NORMAL}\n"
     fi
-
-#    if [[ ! $(node --version) == *"v12."* ]];then
-#      sudo -i curl -sL install-node.now.sh/lts | sudo -i bash
-#    else
-#      printf "${YELLOW} ~ NodeJS v12+ já está instalado!${NORMAL}\n"
-#    fi
 
   elif [[ $(cat /etc/issue) == *"elementary"* ]]; then
 
-    if ! type curl &> /dev/null; then
-      sudo -i apt update && sudo -i apt install curl -y
-    fi
-
-#    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-#    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-
-    if ! type curl &> /dev/null && ! type vim &> /dev/null && ! type yarn &> /dev/null; then
-      sudo -i apt install vim -y && sudo -i apt install yarn -y  && sudo -i apt install dconf-cli -y
+    if ! type vim &> /dev/null; then
+      sudo -i apt install vim -y && sudo -i apt install dconf-cli -y
     else
-      printf "${YELLOW} ~ curl, vim e yarn já estão instalados${NORMAL}\n"
+      printf "${YELLOW} ~ vim e dconf-cli já estão instalados${NORMAL}\n"
     fi
-
-#    if [[ ! $(node --version) == *"v12."* ]];then
-#      sudo -i curl -sL install-node.now.sh/lts | sudo -i bash
-#    fi
 
   if [[ $(cat /etc/issue) == *"elementary OS Hera"* ]]; then
   # Handmade Dracula Theme for Olds ElementaryOS Console
@@ -103,22 +70,12 @@ if [[ $(cat /etc/issue) == *"Debian"* ]]; then
   fi
 
   else [[ $(cat /etc/redhat-release) == *"Fedora"* ]]
-
-    if ! type curl &> /dev/null; then
-     sudo -i dnf install curl -y
-    fi
-#  curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
-#  curl --silent --location https://rpm.nodesource.com/setup_12.x | sudo bash -
-
-  if ! type curl &> /dev/null && ! type vim &> /dev/null && ! type yarn &> /dev/null && ! type dconf &> /dev/null; then
-    sudo -i dnf install vim -y && sudo -i dnf install yarn -y  && sudo -i dnf install dconf* -y
-  else
-    printf "${YELLOW} ~ curl, vim e yarn já estão instalados${NORMAL}\n"
+    if ! type vim &> /dev/null && ! type dconf &> /dev/null; then
+      sudo -i dnf install vim -y && sudo -i dnf install dconf* -y
+    else
+      printf "${YELLOW} ~ curl, vim e yarn já estão instalados${NORMAL}\n"
   fi
 
-#  if [[ ! $(node --version) == *"v12."* ]];then
-#    sudo -i curl -sL install-node.now.sh/lts | sudo -i bash
-#  fi
 fi
 
 #Instala oh-my-bash (testar, provavelmente terá que ser instalado a parte)
