@@ -16,7 +16,6 @@ else
   BLUE=""
 fi
 
-
 # Verificar a distro Linux
 # Red Hat (Fedora/CentOS)
 # cat /etc/redhat-release
@@ -50,8 +49,6 @@ if [[ $(cat /etc/issue) == *"Debian"* ]]; then
 
   if [[ $(cat /etc/issue) == *"elementary OS Hera"* ]]; then
   # Handmade Dracula Theme for Olds ElementaryOS Console
-    gsettings set io.elementary.terminal.settings font "Fira Mono for Powerline Regular"
-    
     gsettings set io.elementary.terminal.settings palette "#262626:#E356A7:#42E66C:#E4F34A:#9B6BDF:#E64747:#75D7EC:#EFA554:#7A7A7A:#FF79C6:#50FA7B:#F1FA8C:#BD93F9:#FF5555:#8BE9FD:#FFB86C"
     gsettings set io.elementary.terminal.settings foreground "#F8F8F2"
     gsettings set io.elementary.terminal.settings background "rgba(40, 42, 54, .95)"
@@ -60,8 +57,6 @@ if [[ $(cat /etc/issue) == *"Debian"* ]]; then
 
   else
   # Handmade Dracula Theme for ElementaryOS Hera
-    gsettings set org.pantheon.terminal.settings font "Fira Mono for Powerline Regular"
-    
     gsettings set org.pantheon.terminal.settings palette "#262626:#E356A7:#42E66C:#E4F34A:#9B6BDF:#E64747:#75D7EC:#EFA554:#7A7A7A:#FF79C6:#5OFA7B:#F1FA8C:#BD93F9:#FF5555:#8BE9FD:#FFB86C"
     gsettings set org.pantheon.terminal.settings foreground "#F8F8F2"
     gsettings set org.pantheon.terminal.settings background "rgba(40, 42, 54, .95)"
@@ -73,13 +68,10 @@ if [[ $(cat /etc/issue) == *"Debian"* ]]; then
     if ! type vim &> /dev/null && ! type dconf &> /dev/null; then
       sudo -i dnf install vim -y && sudo -i dnf install dconf* -y
     else
-      printf "${YELLOW} ~ curl, vim e yarn já estão instalados${NORMAL}\n"
+      printf "${YELLOW} ~ vim e dconf-cli já estão instalados${NORMAL}\n"
   fi
 
 fi
-
-#Instala oh-my-bash (testar, provavelmente terá que ser instalado a parte)
-#sh -c "$(curl -fsSL https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 
 if [ -e $HOME/gnome-terminal ]; then
   printf "${YELLOW} ~ Dracula Theme para Gnome Terminal já está instalado${NORMAL}\n"
@@ -112,6 +104,14 @@ else
   ./install.sh
   cd $HOME/dotfiles-linux
   printf "${BLUE} + Pacote de Fontes Nerd instalado com sucesso!${NORMAL}\n"
+fi
+
+if [[ $(cat /etc/issue) == *"elementary OS Hera"* ]]; then
+# Handmade Dracula Theme for Olds ElementaryOS Console
+  gsettings set io.elementary.terminal.settings font "Fira Mono for Powerline Regular"
+else
+# Handmade Dracula Theme for ElementaryOS Hera
+  gsettings set org.pantheon.terminal.settings font "Fira Mono for Powerline Regular"
 fi
 
 if [[ $(cat /etc/issue) == *"Ubuntu"* ]] && [[ $(cat /etc/isse) == *"Debian"* ]]; then
