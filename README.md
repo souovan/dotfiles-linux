@@ -3,10 +3,14 @@
 ## INSTALAÇÃO (QUASE)AUTOMÁTICA DAS DEPENDÊNCIAS
 
 * Instale o `curl`
+* Instale o `git`
 * Instale o Oh-my-bash:
   ```
   sh -c "$(curl -fsSL https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+  ou no Debian: 
+  su -c "$(curl -fsSL https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh)"
   ```
+
 * Instale os dotfiles:
 
   ``` 
@@ -14,6 +18,7 @@
   cd dotfiles-linux
   ./install.sh
   ```
+
 * No Debian e Ubuntu troque a fonte do terminal para alguma font powerline de sua escolha
 * Abra o VIM e execute o comando `:PluginInstall`
 
@@ -21,6 +26,7 @@
 
 * Clonar este repositório
 * Instalar o `curl`
+* Instalar o `git`
 * Instalar o `vim`
 * Instalar Oh-My-Bash `sh -c "$(curl -fsSL https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh)"`
 * Instalar [Dracula theme for gnome terminal](https://draculatheme.com/gnome-terminal/)
