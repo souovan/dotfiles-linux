@@ -148,6 +148,14 @@ else
   printf "${BLUE} + .vimrc substituido, original renomeado para .vimrc.old${NORMAL}\n"
 fi
 
+if [ -e $HOME/.config/nvim/init.vim]; then
+  mv $HOME/.config/nvim/init.vim $HOME/.config/nvim/init.vim.old
+  cp ./.config/nvim/init.vim $HOME/.config/nvim/
+else
+  cp ./.config/nvim/init.vim $HOME/
+  printf "${BLUE} + init.vim substituído, original renomeado para init.vim.old${NORMAL}\n"
+fi
+
 printf "${GREEN} ################################################${NORMAL}\n"
 printf "${GREEN} # Instalação dos Dotfiles-linux finalizada !!! #${NORMAL}\n"
 printf "${GREEN} ################################################${NORMAL}\n"
