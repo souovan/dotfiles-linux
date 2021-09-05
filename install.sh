@@ -153,7 +153,7 @@ else
   printf "${BLUE} + .vimrc substituido, original renomeado para .vimrc.old${NORMAL}\n"
 fi
 
-if [ -e $HOME/.config/nvim/init.vim]; then
+if [ -e $HOME/.config/nvim/init.vim ]; then
   mv $HOME/.config/nvim/init.vim $HOME/.config/nvim/init.vim.old
   cp ./.config/nvim/init.vim $HOME/.config/nvim/
 else
