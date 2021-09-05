@@ -77,7 +77,7 @@ if [ -e $HOME/gnome-terminal ]; then
   printf "${YELLOW} ~ Dracula Theme para Gnome Terminal já está instalado${NORMAL}\n"
 else
   cd $HOME
-  git clone https://github.com/dracula/gnome-terminal
+  git clone https://github.com/dracula/gnome-terminal &> /dev/null
   cd gnome-terminal
   ./install.sh
   cd $HOME/dotfiles-linux
@@ -89,7 +89,7 @@ if [ -e $HOME/.vim/pack/themes/opt/dracula ]; then
 else
   mkdir -p ~/.vim/pack/themes/opt
   cd ~/.vim/pack/themes/opt
-  git clone https://github.com/dracula/vim.git dracula
+  git clone https://github.com/dracula/vim.git dracula &> /dev/null
   cd $HOME/dotfiles-linux
   printf "${BLUE} + Dracula Theme para VIM instalado com sucesso!${NORMAL}\n"
 fi
@@ -99,7 +99,7 @@ if [ -e $HOME/fonts ]; then
   printf "${YELLOW} ~ O Pacote de Fontes Nerd já está instalado${NORMAL}\n"
 else
   cd $HOME
-  git clone https://github.com/powerline/fonts.git fonts
+  git clone https://github.com/powerline/fonts.git fonts &> /dev/null
   cd fonts
   ./install.sh
   cd $HOME/dotfiles-linux
@@ -122,12 +122,17 @@ fi
 font_dir="$HOME/.local/share/fonts"
 cp "Droid Sans Mono Nerd Font Complete.otf" "$font_dir/"
 
+# Configura a fonte do terminal para Droid Sans Mono for Powerline Regular
+GNOME_TERMINAL_PROFILE=`gsettings get org.gnome.Terminal.ProfilesList default | awk -F \' '{print $2}'`
+
+gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ font 'Droid Sans Mono for Powerline Regular 12'
+
 # Copia os arquivos de configuração do VIM Vundle
 if [ -e $HOME/.vim/bundle/Vundle.vim ]; then
   printf "${YELLOW} ~ O VIM Vundle já está instalado${NORMAL}\n"
 else
   cd $HOME
-  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim &> /dev/null
   cd -
   printf "${BLUE} + VIM Vundle instalado com sucesso!${NORMAL}\n"
 fi
