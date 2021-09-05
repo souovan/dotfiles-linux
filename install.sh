@@ -71,6 +71,13 @@ if [[ $(cat /etc/issue) == *"Debian"* ]]; then
       printf "${YELLOW} ~ vim e dconf-cli já estão instalados${NORMAL}\n"
   fi
 
+  else [[ $(cat /etc/redhat-release) == *"Red Hat Enterprise Linux"* ]]
+    if ! type vim &> /dev/null && ! type dconf &> /dev/null; then
+      sudo -i dnf install vim -y && sudo -i dnf install dconf* -y
+    else
+      printf "${YELLOW} ~ vim e dconf-cli já estão instalados${NORMAL}\n"
+  fi
+
 fi
 
 if [ -e $HOME/gnome-terminal ]; then
