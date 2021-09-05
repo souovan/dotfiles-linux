@@ -25,26 +25,26 @@ fi
 if [[ $(cat /etc/issue) == *"Debian"* ]]; then
 
 
-    if ! type vim &> /dev/null; then
-      su -c "apt install vim -y && apt install dconf-cli -y"
+    if ! type vim &> /dev/null && ! type dconf &> /dev/null && ! type nvim &> /dev/null; then
+      su -c "apt install vim -y && apt install dconf-cli -y && apt install nvim"
     else
-      printf "${YELLOW} ~ vim e dconf-cli já estão instalados${NORMAL}\n"
+      printf "${YELLOW} ~ vim e dconf-cli e nvim já estão instalados${NORMAL}\n"
     fi
 
   elif  [[ $(cat /etc/issue) == *"Ubuntu"* ]]; then
    
-    if ! type vim &> /dev/null && ! type dconf &> /dev/null; then
+    if ! type vim &> /dev/null && ! type dconf &> /dev/null && ! type nvim &> /dev/null; then
       sudo -i apt install vim -y && sudo -i apt install dconf-cli -y
     else
-      printf "${YELLOW} ~ vim e dconf-cli já estão instalados${NORMAL}\n"
+      printf "${YELLOW} ~ vim e dconf-cli e nvim já estão instalados${NORMAL}\n"
     fi
 
   elif [[ $(cat /etc/issue) == *"elementary"* ]]; then
 
-    if ! type vim &> /dev/null; then
-      sudo -i apt install vim -y && sudo -i apt install dconf-cli -y
+    if ! type vim &> /dev/null && ! type nvim &> /dev/null; then
+      sudo -i apt install vim -y && sudo -i apt install dconf-cli -y && sudo -i apt install nvim -y
     else
-      printf "${YELLOW} ~ vim e dconf-cli já estão instalados${NORMAL}\n"
+      printf "${YELLOW} ~ vim e dconf-cli e nvim já estão instalados${NORMAL}\n"
     fi
 
   if [[ $(cat /etc/issue) == *"elementary OS Hera"* ]]; then
@@ -64,18 +64,18 @@ if [[ $(cat /etc/issue) == *"Debian"* ]]; then
     gsettings set org.pantheon.terminal.settings follow-last-tab "true"
   fi
 
-  else [[ $(cat /etc/redhat-release) == *"Fedora"* ]]
-    if ! type vim &> /dev/null && ! type dconf &> /dev/null; then
-      sudo -i dnf install vim -y && sudo -i dnf install dconf* -y
+  elif [[ $(cat /etc/redhat-release) == *"Fedora"* ]]
+    if ! type vim &> /dev/null && ! type dconf &> /dev/null && ! type nvim &> /dev/null; then
+      sudo -i dnf install vim -y && sudo -i dnf install dconf* -y && sudo -i dnf install nvim -y
     else
-      printf "${YELLOW} ~ vim e dconf-cli já estão instalados${NORMAL}\n"
+      printf "${YELLOW} ~ vim e dconf-cli e nvim já estão instalados${NORMAL}\n"
   fi
 
-  else [[ $(cat /etc/redhat-release) == *"Red Hat Enterprise Linux"* ]]
-    if ! type vim &> /dev/null && ! type dconf &> /dev/null; then
-      sudo -i dnf install vim -y && sudo -i dnf install dconf* -y
+  elif [[ $(cat /etc/redhat-release) == *"Red Hat Enterprise Linux"* ]]
+    if ! type vim &> /dev/null && ! type dconf &> /dev/null && ! type nvim &> /dev/null; then
+      sudo -i dnf install vim -y && sudo -i dnf install dconf* -y && sudo -i dnf install nvim -y
     else
-      printf "${YELLOW} ~ vim e dconf-cli já estão instalados${NORMAL}\n"
+      printf "${YELLOW} ~ vim e dconf-cli e nvim já estão instalados${NORMAL}\n"
   fi
 
 fi
