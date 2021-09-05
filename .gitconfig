@@ -5,7 +5,7 @@
 [alias]
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   daily = !sh -c 'git log --since=yesterday --format=oneline --author=souovan'
-  gpg = git verify-commit HEAD
+  gpg = verify-commit HEAD
 
 [commit]
 	gpgsign = true
