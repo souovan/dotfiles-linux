@@ -17,7 +17,7 @@ else
 fi
 
 # Verificar a distro Linux
-# Red Hat (Fedora/CentOS)
+# Red Hat (Fedora)
 # cat /etc/redhat-release
 # Debian ou Ubuntu ou ElementaryOS
 # cat /etc/issue
