@@ -18,8 +18,6 @@
   cd dotfiles-linux
   ./install.sh
   ```
-
-* No Debian e Ubuntu troque a fonte do terminal para alguma font powerline de sua escolha
 * Abra o VIM e execute o comando `:PluginInstall`
 
 ## INSTALAÇÃO MANUAL DAS DEPENDÊNCIAS
