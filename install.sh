@@ -26,21 +26,21 @@ if [[ $(cat /etc/issue) == *"Debian"* ]]; then
   if ! type vim &> /dev/null && ! type dconf &> /dev/null && ! type nvim &> /dev/null; then
     su -c "apt install vim -y && apt install dconf-cli -y && apt install nvim"
   else
-    printf "${YELLOW} ~ vim e dconf-cli e nvim já estão instalados${NORMAL}\n"
+    printf "%s ~ vim e dconf-cli e nvim já estão instalados%s\n" "$YELLOW" "$NORMAL"
   fi
 
 elif  [[ $(cat /etc/issue) == *"Ubuntu"* ]]; then 
   if ! type vim &> /dev/null && ! type dconf &> /dev/null && ! type nvim &> /dev/null; then
     sudo -i apt install vim -y && sudo -i apt install dconf-cli -y
   else
-    printf "${YELLOW} ~ vim e dconf-cli e nvim já estão instalados${NORMAL}\n"
+    printf "%s ~ vim e dconf-cli e nvim já estão instalados%s\n" "$YELLOW" "$NORMAL"
   fi
 
 elif [[ $(cat /etc/issue) == *"elementary"* ]]; then
   if ! type vim &> /dev/null && ! type nvim &> /dev/null; then
     sudo -i apt install vim -y && sudo -i apt install dconf-cli -y && sudo -i apt install nvim -y
   else
-    printf "${YELLOW} ~ vim e dconf-cli e nvim já estão instalados${NORMAL}\n"
+    printf "%s ~ vim e dconf-cli e nvim já estão instalados%s\n" "$YELLOW" "$NORMAL"
   fi
 
   if [[ $(cat /etc/issue) == *"elementary OS Hera"* ]]; then
@@ -64,49 +64,49 @@ elif [[ $(cat /etc/redhat-release) == *"Fedora"* ]]; then
   if ! type vim &> /dev/null && ! type dconf &> /dev/null && ! type nvim &> /dev/null; then
     sudo -i dnf install vim -y && sudo -i dnf install dconf* -y && sudo -i dnf install nvim -y
   else
-    printf "${YELLOW} ~ vim e dconf-cli e nvim já estão instalados${NORMAL}\n"
+    printf "%s ~ vim e dconf-cli e nvim já estão instalados%s\n" "$YELLOW" "$NORMAL"
   fi
 
 elif [[ $(cat /etc/redhat-release) == *"Red Hat Enterprise Linux"* ]]; then
   if ! type vim &> /dev/null && ! type dconf &> /dev/null && ! type nvim &> /dev/null; then
     sudo -i dnf install vim -y && sudo -i dnf install dconf* -y && sudo -i dnf install nvim -y
   else
-    printf "${YELLOW} ~ vim e dconf-cli e nvim já estão instalados${NORMAL}\n"
+    printf "%s ~ vim e dconf-cli e nvim já estão instalados%s\n" "$YELLOW" "$NORMAL"
   fi
 
 fi
 
 if [ -e $HOME/gnome-terminal ]; then
-  printf "${YELLOW} ~ Dracula Theme para Gnome Terminal já está instalado${NORMAL}\n"
+  printf "%s ~ Dracula Theme para Gnome Terminal já está instalado%s\n" "$YELLOW" "$NORMAL"
 else
   cd $HOME
   git clone https://github.com/dracula/gnome-terminal &> /dev/null
   cd gnome-terminal
   ./install.sh
   cd $HOME/dotfiles-linux
-  printf "${BLUE} + Dracula Theme para Gnome Terminal Instalado com sucesso!${NORMAL}\n"
+  printf "%s + Dracula Theme para Gnome Terminal Instalado com sucesso!%s\n" "$BLUE" "$NORMAL"
 fi
 
 if [ -e $HOME/.vim/pack/themes/opt/dracula ]; then
-  printf "${YELLOW} ~ Dracula Theme para VIM já está instalado${NORMAL}\n"
+  printf "%s ~ Dracula Theme para VIM já está instalado%s\n" "$YELLOW" "$NORMAL"
 else
   mkdir -p ~/.vim/pack/themes/opt
   cd ~/.vim/pack/themes/opt
   git clone https://github.com/dracula/vim.git dracula &> /dev/null
   cd $HOME/dotfiles-linux
-  printf "${BLUE} + Dracula Theme para VIM instalado com sucesso!${NORMAL}\n"
+  printf "%s + Dracula Theme para VIM instalado com sucesso!%s\n" "$BLUE" "$NORMAL"
 fi
 
 # Instala Fonts para Powerline
 if [ -e $HOME/fonts ]; then
-  printf "${YELLOW} ~ O Pacote de Fontes Nerd já está instalado${NORMAL}\n"
+  printf "%s ~ O Pacote de Fontes Nerd já está instalado%s\n" "$YELLOW" "$NORMAL"
 else
   cd $HOME
   git clone https://github.com/powerline/fonts.git fonts &> /dev/null
   cd fonts
   ./install.sh
   cd $HOME/dotfiles-linux
-  printf "${BLUE} + Pacote de Fontes Nerd instalado com sucesso!${NORMAL}\n"
+  printf "%s + Pacote de Fontes Nerd instalado com sucesso!%s\n" "$BLUE" "$NORMAL"
 fi
 
 if [[ $(cat /etc/issue) == *"elementary OS Hera"* ]]; then
@@ -117,9 +117,9 @@ else
   gsettings set org.pantheon.terminal.settings font "Fira Mono for Powerline Regular"
 fi
 
-if [[ $(cat /etc/issue) == *"Ubuntu"* ]] && [[ $(cat /etc/isse) == *"Debian"* ]]; then
-  gsettings set org.gnome.terminal.settings font "Ubuntu Mono derivative Powerline Regular"
-fi
+#if [[ $(cat /etc/issue) == *"Ubuntu"* ]] || [[ $(cat /etc/isse) == *"Debian"* ]]; then
+#  gsettings set org.gnome.terminal.settings font "Ubuntu Mono derivative Powerline Regular"
+#fi
 
 # Instala Font Droid Sans Mono Nerd to Linux fonts directory
 font_dir="$HOME/.local/share/fonts"
@@ -132,12 +132,12 @@ gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profi
 
 # Copia os arquivos de configuração do VIM Vundle
 if [ -e $HOME/.vim/bundle/Vundle.vim ]; then
-  printf "${YELLOW} ~ O VIM Vundle já está instalado${NORMAL}\n"
+  printf "%s ~ O VIM Vundle já está instalado%s\n" "$YELLOW" "$NORMAL"
 else
   cd $HOME
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim &> /dev/null
   cd -
-  printf "${BLUE} + VIM Vundle instalado com sucesso!${NORMAL}\n"
+  printf "%s + VIM Vundle instalado com sucesso!%s\n" "$BLUE" "$NORMAL"
 fi
 
 if [ -e $HOME/.bashrc ]; then
@@ -145,7 +145,7 @@ if [ -e $HOME/.bashrc ]; then
   cp ./.bashrc $HOME/
 else
   cp ./.bashrc $HOME/
-  printf "${BLUE} + .bashrc substituido, original renomeado para .bashrc.old${NORMAL}\n"
+  printf "%s + .bashrc substituido, original renomeado para .bashrc.old%s\n" "$BLUE" "$NORMAL"
 fi
 
 if [ -e $HOME/.vimrc ]; then
@@ -153,7 +153,7 @@ if [ -e $HOME/.vimrc ]; then
   cp ./.vimrc $HOME/
 else
   cp ./.vimrc $HOME/
-  printf "${BLUE} + .vimrc substituido, original renomeado para .vimrc.old${NORMAL}\n"
+  printf "%s + .vimrc substituido, original renomeado para .vimrc.old%s\n" "$BLUE" "$NORMAL"
 fi
 
 if [ -e $HOME/.config/nvim/init.vim ]; then
@@ -161,10 +161,10 @@ if [ -e $HOME/.config/nvim/init.vim ]; then
   cp ./.config/nvim/init.vim $HOME/.config/nvim/
 else
   cp ./.config/nvim/init.vim $HOME/
-  printf "${BLUE} + init.vim substituído, original renomeado para init.vim.old${NORMAL}\n"
+  printf "%s + init.vim substituído, original renomeado para init.vim.old%s\n" "$BLUE" "$NORMAL"
 fi
 
-printf "${GREEN} ################################################${NORMAL}\n"
-printf "${GREEN} # Instalação dos Dotfiles-linux finalizada !!! #${NORMAL}\n"
-printf "${GREEN} ################################################${NORMAL}\n"
+printf "%s ################################################%s\n" "$GREEN" "$NORMAL"
+printf "%s # Instalação dos Dotfiles-linux finalizada !!! #%s\n" "$GREEN" "$NORMAL"
+printf "%s ################################################%s\n" "$GREEN" "$NORMAL"
 exec bash; source $HOME/.bashrc
