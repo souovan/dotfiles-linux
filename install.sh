@@ -43,8 +43,8 @@ elif [[ $(cat /etc/issue) == *"elementary"* ]]; then
     printf "%s ~ vim e dconf-cli e nvim já estão instalados%s\n" "$YELLOW" "$NORMAL"
   fi
 
-  if [[ $(cat /etc/issue) == *"elementary OS Hera"* ]]; then
-  # Handmade Dracula Theme for Olds ElementaryOS Console
+  if [[ $(cat /etc/issue) == *"elementary OS"* ]] || [[ $(cat /etc/issue) == *"elementary OS Next"* ]]; then
+  # Handmade gnome terminal Dracula Theme for old and Odin ElementaryOS distros
     gsettings set io.elementary.terminal.settings palette "#262626:#E356A7:#42E66C:#E4F34A:#9B6BDF:#E64747:#75D7EC:#EFA554:#7A7A7A:#FF79C6:#50FA7B:#F1FA8C:#BD93F9:#FF5555:#8BE9FD:#FFB86C"
     gsettings set io.elementary.terminal.settings foreground "#F8F8F2"
     gsettings set io.elementary.terminal.settings background "rgba(40, 42, 54, .95)"
