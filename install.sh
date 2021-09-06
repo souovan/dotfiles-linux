@@ -109,14 +109,15 @@ else
   printf "%s + Pacote de Fontes Nerd instalado com sucesso!%s\n" "$BLUE" "$NORMAL"
 fi
 
-if [[ $(cat /etc/issue) == *"elementary OS Hera"* ]]; then
+if [[ $(cat /etc/issue) == *"elementary"* ]]; then
 # Handmade Dracula Theme for Olds ElementaryOS Console
   gsettings set io.elementary.terminal.settings font "Fira Mono for Powerline Regular"
-else
+elif [[ $(cat /etc/issue) == *"elementary OS Hera"* ]]; then
 # Handmade Dracula Theme for ElementaryOS Hera
   gsettings set org.pantheon.terminal.settings font "Fira Mono for Powerline Regular"
 fi
 
+#legacy test code
 #if [[ $(cat /etc/issue) == *"Ubuntu"* ]] || [[ $(cat /etc/isse) == *"Debian"* ]]; then
 #  gsettings set org.gnome.terminal.settings font "Ubuntu Mono derivative Powerline Regular"
 #fi
@@ -125,10 +126,12 @@ fi
 font_dir="$HOME/.local/share/fonts"
 cp "Droid Sans Mono Nerd Font Complete.otf" "$font_dir/"
 
-# Configura a fonte do terminal para Droid Sans Mono for Powerline Regular
-GNOME_TERMINAL_PROFILE=$(gsettings get org.gnome.Terminal.ProfilesList default | awk -F \' '{print $2}')
+# Configura a fonte do terminal para Droid Sans Mono for Powerline Regular para Ubuntu e Debian
+if [[ $(cat /etc/issue) == *"Ubuntu"* ]] || [[ $(cat /etc/isse) == *"Debian"* ]]; then
+  GNOME_TERMINAL_PROFILE=$(gsettings get org.gnome.Terminal.ProfilesList default | awk -F \' '{print $2}')
 
-gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ font 'Droid Sans Mono for Powerline Regular 12'
+  gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ font 'Droid Sans Mono for Powerline Regular 12'
+fi
 
 # Copia os arquivos de configuração do VIM Vundle
 if [ -e $HOME/.vim/bundle/Vundle.vim ]; then
