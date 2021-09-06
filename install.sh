@@ -17,28 +17,28 @@ else
 fi
 
 # Verificar a distro Linux
-# Red Hat (Fedora)
+# Red Hat (Fedora, RHEL)
 # cat /etc/redhat-release
 # Debian ou Ubuntu ou ElementaryOS
 # cat /etc/issue
 
 if [[ $(cat /etc/issue) == *"Debian"* ]]; then
-  if ! type vim &> /dev/null && ! type dconf &> /dev/null && ! type nvim &> /dev/null; then
-    su -c "apt install vim -y && apt install dconf-cli -y && apt install nvim"
+  if ! type vim &> /dev/null || ! type dconf &> /dev/null || ! type nvim &> /dev/null; then
+    su -c "apt-get update && apt install vim -y && apt install dconf-cli -y && apt install neovim" &> /dev/null
   else
     printf "%s ~ vim e dconf-cli e nvim já estão instalados%s\n" "$YELLOW" "$NORMAL"
   fi
 
 elif  [[ $(cat /etc/issue) == *"Ubuntu"* ]]; then 
-  if ! type vim &> /dev/null && ! type dconf &> /dev/null && ! type nvim &> /dev/null; then
-    sudo -i apt install vim -y && sudo -i apt install dconf-cli -y
+  if ! type vim &> /dev/null || ! type dconf &> /dev/null || ! type nvim &> /dev/null; then
+    sudo -i apt-get update && sudo -i apt-get install vim -y && sudo -i apt-get install dconf-cli -y && sudo -i apt-get install neovim -y &> /dev/null
   else
     printf "%s ~ vim e dconf-cli e nvim já estão instalados%s\n" "$YELLOW" "$NORMAL"
   fi
 
 elif [[ $(cat /etc/issue) == *"elementary"* ]]; then
-  if ! type vim &> /dev/null && ! type nvim &> /dev/null; then
-    sudo -i apt install vim -y && sudo -i apt install dconf-cli -y && sudo -i apt install nvim -y
+  if ! type vim &> /dev/null || ! type nvim &> /dev/null; then
+    sudo -i apt install vim -y && sudo -i apt install dconf-cli -y && sudo -i apt install neovim -y &> /dev/null
   else
     printf "%s ~ vim e dconf-cli e nvim já estão instalados%s\n" "$YELLOW" "$NORMAL"
   fi
@@ -61,15 +61,15 @@ elif [[ $(cat /etc/issue) == *"elementary"* ]]; then
   fi
 
 elif [[ $(cat /etc/redhat-release) == *"Fedora"* ]]; then
-  if ! type vim &> /dev/null && ! type dconf &> /dev/null && ! type nvim &> /dev/null; then
-    sudo -i dnf install vim -y && sudo -i dnf install dconf* -y && sudo -i dnf install nvim -y
+  if ! type vim &> /dev/null || ! type dconf &> /dev/null || ! type nvim &> /dev/null; then
+    sudo -i dnf install vim -y && sudo -i dnf install dconf* -y && sudo -i dnf install neovim -y &> /dev/null
   else
     printf "%s ~ vim e dconf-cli e nvim já estão instalados%s\n" "$YELLOW" "$NORMAL"
   fi
 
 elif [[ $(cat /etc/redhat-release) == *"Red Hat Enterprise Linux"* ]]; then
-  if ! type vim &> /dev/null && ! type dconf &> /dev/null && ! type nvim &> /dev/null; then
-    sudo -i dnf install vim -y && sudo -i dnf install dconf* -y && sudo -i dnf install nvim -y
+  if ! type vim &> /dev/null || ! type dconf &> /dev/null || ! type nvim &> /dev/null; then
+    sudo -i dnf install vim -y && sudo -i dnf install dconf* -y && sudo -i dnf install neovim -y &> /dev/null
   else
     printf "%s ~ vim e dconf-cli e nvim já estão instalados%s\n" "$YELLOW" "$NORMAL"
   fi
@@ -132,6 +132,7 @@ if [[ $(cat /etc/issue) == *"Ubuntu"* ]] || [[ $(cat /etc/isse) == *"Debian"* ]]
 
   gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ font 'Droid Sans Mono for Powerline Regular 12'
   gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ use-system-font false
+  gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ use-theme-colors false
 fi
 
 # Copia os arquivos de configuração do VIM Vundle
