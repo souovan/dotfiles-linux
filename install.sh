@@ -69,9 +69,9 @@ elif [[ $(cat /etc/redhat-release) == *"Fedora"* ]]; then
 
 elif [[ $(cat /etc/redhat-release) == *"Red Hat Enterprise Linux"* ]]; then
   if ! type vim &> /dev/null || ! type dconf &> /dev/null || ! type nvim &> /dev/null; then
-    su -c "xargs -a dnf_rhel_packages.txt dnf install -y"
-    su -c "curl -o /usr/local/bin/nvim -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage"
-    su -c "chmod +x /usr/local/bin/nvim"
+    su -c "xargs -a dnf_rhel_packages.txt dnf install -y && \
+           curl -o /usr/local/bin/nvim -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage && \
+           chmod +x /usr/local/bin/nvim"
   else
     printf "%s ~ vim e dconf-cli e nvim já estão instalados%s\n" "$YELLOW" "$NORMAL"
   fi
