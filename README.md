@@ -19,7 +19,7 @@ su -c "dnf install -y curl git"
   ```
   sh -c "$(curl -fsSL https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh)"
   ```
-  * Instale os dotfiles:
+* Instale os dotfiles:
 
   ``` 
   git clone https://github.com/souovan/dotfiles-linux.git
