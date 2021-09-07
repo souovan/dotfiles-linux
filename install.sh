@@ -165,7 +165,8 @@ if [ -e $HOME/.config/nvim/init.vim ]; then
   mv $HOME/.config/nvim/init.vim $HOME/.config/nvim/init.vim.old
   cp ./.config/nvim/init.vim $HOME/.config/nvim/
 else
-  cp ./.config/nvim/init.vim $HOME/
+  mkdir -p $HOME/.config/nvim/
+  cp ./.config/nvim/init.vim $HOME/.config/nvim/
   printf "%s + init.vim substituído, original renomeado para init.vim.old%s\n" "$BLUE" "$NORMAL"
 fi
 
