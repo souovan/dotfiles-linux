@@ -1,5 +1,11 @@
 # Meus dotfiles linux
 
+### Compatível com as distros:
+* Ubuntu
+* Elementary
+* Fedora
+* RHEL8
+
 ## INSTALAÇÃO (QUASE)AUTOMÁTICA DAS DEPENDÊNCIAS
 
 * Instale o `curl`
