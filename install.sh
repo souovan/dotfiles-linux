@@ -117,14 +117,10 @@ elif [[ $(cat /etc/issue) == *"elementary OS Hera"* ]]; then
   gsettings set org.pantheon.terminal.settings font "Fira Mono for Powerline Regular"
 fi
 
-#legacy test code
-#if [[ $(cat /etc/issue) == *"Ubuntu"* ]] || [[ $(cat /etc/isse) == *"Debian"* ]]; then
-#  gsettings set org.gnome.terminal.settings font "Ubuntu Mono derivative Powerline Regular"
-#fi
-
 # Instala Font Droid Sans Mono Nerd to Linux fonts directory
-font_dir="$HOME/.local/share/fonts"
-cp "Droid Sans Mono Nerd Font Complete.otf" "$font_dir/"
+# deprecated
+#font_dir="$HOME/.local/share/fonts"
+#cp "Droid Sans Mono Nerd Font Complete.otf" "$font_dir/"
 
 # Configura a fonte do terminal para Droid Sans Mono for Powerline Regular para Ubuntu e Debian
 if [[ $(cat /etc/issue) == *"Ubuntu"* ]] || [[ $(cat /etc/issue) == *"Debian"* ]]; then
