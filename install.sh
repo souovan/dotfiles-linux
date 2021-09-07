@@ -127,7 +127,7 @@ font_dir="$HOME/.local/share/fonts"
 cp "Droid Sans Mono Nerd Font Complete.otf" "$font_dir/"
 
 # Configura a fonte do terminal para Droid Sans Mono for Powerline Regular para Ubuntu e Debian
-if [[ $(cat /etc/issue) == *"Ubuntu"* ]] || [[ $(cat /etc/isse) == *"Debian"* ]]; then
+if [[ $(cat /etc/issue) == *"Ubuntu"* ]] || [[ $(cat /etc/issue) == *"Debian"* ]]; then
   GNOME_TERMINAL_PROFILE=$(gsettings get org.gnome.Terminal.ProfilesList default | awk -F \' '{print $2}')
 
   gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ font 'Droid Sans Mono for Powerline Regular 12'
