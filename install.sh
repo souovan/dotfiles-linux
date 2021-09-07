@@ -69,7 +69,7 @@ elif [[ $(cat /etc/redhat-release) == *"Fedora"* ]]; then
 
 elif [[ $(cat /etc/redhat-release) == *"Red Hat Enterprise Linux"* ]]; then
   if ! type vim &> /dev/null || ! type dconf &> /dev/null || ! type nvim &> /dev/null; then
-    sudo dnf install -y $(< dnf_packages.txt)
+    su -c "xargs -a dnf_packages.txt dnf install -y"
   else
     printf "%s ~ vim e dconf-cli e nvim já estão instalados%s\n" "$YELLOW" "$NORMAL"
   fi
