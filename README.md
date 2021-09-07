@@ -4,25 +4,33 @@
 
 * Instale o `curl`
 * Instale o `git`
+
+Debian:
+```
+su -c "apt-get install -y curl git"
+```
+RHEL:
+```
+su -c "dnf install -y curl git"
+```
+
 * Instale o Oh-my-bash:
   
   ```
   sh -c "$(curl -fsSL https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh)"
   ```
-  no Debian use: 
-  
-  ```
-  su -c "$(curl -fsSL https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh)"
-  ```
-
-* Instale os dotfiles:
+  * Instale os dotfiles:
 
   ``` 
   git clone https://github.com/souovan/dotfiles-linux.git
   cd dotfiles-linux
   ./install.sh
   ```
+* **REINICIE O TERMINAL**
+
 * Abra o VIM e execute o comando `:PluginInstall`
+
+---
 
 ## INSTALAÇÃO MANUAL DAS DEPENDÊNCIAS
 
