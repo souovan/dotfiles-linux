@@ -118,9 +118,9 @@ elif [[ $(cat /etc/issue) == *"elementary OS Hera"* ]]; then
 fi
 
 # Instala Font Droid Sans Mono Nerd to Linux fonts directory
-# deprecated
-#font_dir="$HOME/.local/share/fonts"
-#cp "Droid Sans Mono Nerd Font Complete.otf" "$font_dir/"
+# used to show icons on vim/nvim
+font_dir="$HOME/.local/share/fonts"
+cp "Droid Sans Mono Nerd Font Complete.otf" "$font_dir/"
 
 # Configura a fonte do terminal para Droid Sans Mono for Powerline Regular para Ubuntu e Debian
 if [[ $(cat /etc/issue) == *"Ubuntu"* ]] || [[ $(cat /etc/issue) == *"Debian"* ]]; then
