@@ -24,21 +24,21 @@ fi
 
 if [[ $(cat /etc/issue) == *"Debian"* ]]; then
   if ! type vim &> /dev/null || ! type dconf &> /dev/null || ! type nvim &> /dev/null; then
-    su -c "apt-get update && apt install vim -y && apt install dconf-cli -y && apt install neovim"
+    su -c "xargs -a apt_packages.txt apt-get install -y"
   else
     printf "%s ~ vim e dconf-cli e nvim já estão instalados%s\n" "$YELLOW" "$NORMAL"
   fi
 
 elif  [[ $(cat /etc/issue) == *"Ubuntu"* ]]; then 
   if ! type vim &> /dev/null || ! type dconf &> /dev/null || ! type nvim &> /dev/null; then
-    sudo -i apt-get update && sudo -i apt-get install vim -y && sudo -i apt-get install dconf-cli -y && sudo -i apt-get install neovim -y
+    sudo apt-get install -y $(< apt_packages.txt)
   else
     printf "%s ~ vim e dconf-cli e nvim já estão instalados%s\n" "$YELLOW" "$NORMAL"
   fi
 
 elif [[ $(cat /etc/issue) == *"elementary"* ]]; then
   if ! type vim &> /dev/null || ! type nvim &> /dev/null; then
-    sudo -i apt install vim -y && sudo -i apt install dconf-cli -y && sudo -i apt install neovim -y
+    sudo apt-get install -y $(< apt_packages.txt)
   else
     printf "%s ~ vim e dconf-cli e nvim já estão instalados%s\n" "$YELLOW" "$NORMAL"
   fi
@@ -62,14 +62,14 @@ elif [[ $(cat /etc/issue) == *"elementary"* ]]; then
 
 elif [[ $(cat /etc/redhat-release) == *"Fedora"* ]]; then
   if ! type vim &> /dev/null || ! type dconf &> /dev/null || ! type nvim &> /dev/null; then
-    sudo -i dnf install vim -y && sudo -i dnf install dconf* -y && sudo -i dnf install neovim -y
+    sudo dnf install -y $(< dnf_packages.txt)
   else
     printf "%s ~ vim e dconf-cli e nvim já estão instalados%s\n" "$YELLOW" "$NORMAL"
   fi
 
 elif [[ $(cat /etc/redhat-release) == *"Red Hat Enterprise Linux"* ]]; then
   if ! type vim &> /dev/null || ! type dconf &> /dev/null || ! type nvim &> /dev/null; then
-    sudo -i dnf install vim -y && sudo -i dnf install dconf* -y && sudo -i dnf install neovim -y
+    sudo dnf install -y $(< dnf_packages.txt)
   else
     printf "%s ~ vim e dconf-cli e nvim já estão instalados%s\n" "$YELLOW" "$NORMAL"
   fi
