@@ -5,9 +5,13 @@
 * Instale o `curl`
 * Instale o `git`
 * Instale o Oh-my-bash:
+  
   ```
   sh -c "$(curl -fsSL https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh)"
-  ou no Debian: 
+  ```
+  no Debian use: 
+  
+  ```
   su -c "$(curl -fsSL https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh)"
   ```
 
