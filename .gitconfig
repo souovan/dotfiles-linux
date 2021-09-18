@@ -6,5 +6,6 @@
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   daily = log --since=yesterday --format=oneline --author=souovan
   gpg = verify-commit HEAD
+  s = !git diff --stat --cached origin
 [commit]
 	gpgsign = true
