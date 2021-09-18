@@ -4,8 +4,8 @@
 	signingkey = BE135805A384804D
 [alias]
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-  daily = !sh -c 'git log --since=yesterday --format=oneline --author=souovan'
+  daily = log --since=yesterday --format=oneline --author=souovan
   gpg = verify-commit HEAD
-
+  s = !git diff --stat --cached origin/main
 [commit]
 	gpgsign = true
