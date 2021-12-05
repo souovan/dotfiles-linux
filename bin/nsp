@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+# Opções...
+# TESTAR SE EDITOR E VALIDO (ESTA INSTALADO) E ALTERAR SCRIPT PARA RECEBER EDITOR PARA ABRIR O ARQUIVO POR PARAMETRO OU UTILIZAR DEFAULT
+editor="nvim"
+
+# Variáveis
+
+RED="\033[1;31m"
+YELLOW="\033[1;33m"
+NORMAL="\033[0m"
+
+today=$( date +'%d/%m/%Y' )
+
+header="#!/usr/bin/env bash
+# ------------------------------------------------
+# Script   : $1
+# Descrição:
+# Versão   : 0.1
+# Autor    : Vinicius https://github.com/souovan
+# Data     : $today
+# Liçenca  : GNU/GPL v3.0
+# ------------------------------------------------
+# Uso:
+# ------------------------------------------------
+"
+
+# INSERIR AJUDA DO CRIADOR DE SCRIPTS
+
+# Testar se usuário passou o número certo de argumentos... (1 argumento)
+[[ $# -ne 1 ]] && echo -e "$RED Informe *um* nome de arquivo! $NORMAL" && exit 1
+
+# Testar se arquivo já existe...
+[[ -f ~/bin/$1 ]] && echo -e  "$YELLOW O script $1 já existe $NORMAL" && exit 1
+
+echo "$header" > ~/bin/$1
+chmod +x $1
+$editor $1
+

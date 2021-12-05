@@ -168,6 +168,14 @@ else
   printf "%s + init.vim substituído, original renomeado para init.vim.old%s\n" "$BLUE" "$NORMAL"
 fi
 
+if [ -e $HOME/bin ]; then
+  mv $HOME/bin $HOME/bin.old
+  cp -r ./bin $HOME/
+else
+  cp -r ./bin $HOME/
+  printf "%s + /bin substituido, original renomeado para /bin.old%s\n" "$BLUE" "$NORMAL"
+fi
+
 printf "%s ################################################%s\n" "$GREEN" "$NORMAL"
 printf "%s # Instalação dos Dotfiles-linux finalizada !!! #%s\n" "$GREEN" "$NORMAL"
 printf "%s ################################################%s\n" "$GREEN" "$NORMAL"
