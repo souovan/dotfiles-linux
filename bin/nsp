@@ -2,7 +2,7 @@
 # ------------------------------------------------
 # Script   : nsp 
 # Descrição: a tool to create new scripts
-# Versão   : 0.1.0
+# Versão   : 0.1.1
 # Autor    : Vinicius https://github.com/souovan
 # Data     : 6/12/2021
 # Liçenca  : GNU/GPL v3.0
@@ -22,7 +22,7 @@ NORMAL="\033[0m"
 
 script=$1
 
-version="0.1.0"
+version="0.1.1"
 
 today=$( date +'%d/%m/%Y' )
 
@@ -40,20 +40,20 @@ header="#!/usr/bin/env bash
 "
 
 help="
-    usage: nsp [<option>] [<editor_name>] <new_script_name>
-        or
-        nsp [optional arguments]
-
     A bashscript to create new bashscripts
 
-        option:
-        -e | --editor          which editor should the new bashscript be opened with
-                            if no editor was informed the bashscript will be opened in
-                            nano editor
+    usage: nsp [<option>] [<editor_name>] <new_script_name>
+           or
+           nsp [optional arguments]
 
-        optional arguments:
-        -h | --help            show this help message and exit
-        -v | --version         show program's version number and exit
+    option:
+    -e | --editor        which editor should the new bashscript be opened with
+                         if no editor was explicit informed as argument of this flag
+                         the bashscript will be opened in nano editor
+
+    optional arguments:
+    -h | --help          show this help message and exit
+    -v | --version       show program's version number and exit
 " 
 
 # Verifica se o primeiro argumento é igual -h ou --help e exibe a ajuda do script
