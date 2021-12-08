@@ -8,7 +8,7 @@
 # Data     : 07/12/2021
 # Liçenca  : GNU/GPL v3.0
 # ------------------------------------------------
-# Uso: cromodoro [-h|--help]
+# Uso: cromodoro <on|off>
 # ------------------------------------------------
 
 # Example of job definition:
@@ -46,11 +46,6 @@ help="
 "
 
 version="0.0.1"
-
-# Variaveis de ambiente necessárias para que o notify-send fucione
-export DISPLAY=:0.0
-export XAUTHORITY="/home/vinicius/.Xauthority"
-export XDG_RUNTIME_DIR="/run/user/1000"
 
 [[ $# -ne 1 ]] && echo "$help" && exit 1
 
