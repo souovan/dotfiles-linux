@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# ------------------------------------------------
+# Script   : notify_pomodoro
+# Descrição: A script to be used by ~/bin/cronmodoro
+#            to do push notification
+# Versão   : 0.0.1
+# Autor    : Vinicius https://github.com/souovan
+# Data     : 07/12/2021
+# Liçenca  : GNU/GPL v3.0
+# ------------------------------------------------
+# Uso: notify_pomodoro
+# ------------------------------------------------
+
+export DISPLAY=:0.0
+export XAUTHORITY="/home/vinicius/.Xauthority"
+export XDG_RUNTIME_DIR="/run/user/1000"
+# <a target="_blank" href="https://icons8.com/icon/lPmL0NaypRwo/tomato">Tomato</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+/usr/bin/notify-send -u critical -i ~/Downloads/tomato.png POMODORO "Inicio da pausa: $(date +'%H:%M')" \
+&& /usr/bin/sleep 5m \
+&& /usr/bin/notify-send -u critical -i ~/Downloads/tomato.png POMODORO "Fim da pausa: $(date +'%H:%M')"

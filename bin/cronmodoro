@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+# ------------------------------------------------
+# Script   : cronmodoro
+# Descrição: A script that uses cron to do a 
+#            POMODORO timer
+# Versão   : 0.0.1
+# Autor    : Vinicius https://github.com/souovan
+# Data     : 07/12/2021
+# Liçenca  : GNU/GPL v3.0
+# ------------------------------------------------
+# Uso: cromodoro <on|off>
+# ------------------------------------------------
+
+# Example of job definition:
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+# |  |  |  |  |
+# *  *  *  *  * user-name command to be executed
+# 17 *	*  *  *	root    cd / && run-parts --report /etc/cron.hourly
+
+# Variaveis
+
+RED="\033[1;35m"
+YELLOW="\033[1;33m"
+NORMAL="\033[0m"
+GREEN="\033[1;32m"
+
+help="
+    A bashscript to create and run a POMODORO timer that runs
+    every 30 minutes of every our of every day
+
+    usage: cronmodoro <option>
+
+    option:
+    on                   turn on the crontab that controls
+                         the POMODORO timer
+    off                  turn off the crontab that controls
+                         the POMODORO timer
+
+    optional arguments:
+    -h | --help          show this help message and exit
+    -v | --version       show program's version number and exit
+"
+
+version="0.0.1"
+
+[[ $# -ne 1 ]] && echo "$help" && exit 1
+
+[[ $1 = "-h" || $1 = "--help" || $1 = "" ]] && echo "$help" && exit 1
+
+[[ $1 = "-v" || $1 = "--version" || $1 = "" ]] && echo "$version" && exit 0
+
+[[ $1 -ne "on" || $1 -ne "off" ]] && echo "$help" && exit 1
+
+[[ $1 = "on" ]] && echo -e "$GREEN cronmodoro ligado $NORMAL" && (echo "*/30 * * * * /home/vinicius/bin/notify_pomodoro") | sort -u | crontab - && exit 0
+
+[[ $1 = "off" ]] && echo -e "$RED cronmodoro desligado $NORMAL" && crontab -r && exit 0
+
+

@@ -16,7 +16,7 @@ editor="nano"
 
 # Variáveis
 
-RED="\033[1;31m"
+RED="\033[1;35m"
 YELLOW="\033[1;33m"
 NORMAL="\033[0m"
 
@@ -85,6 +85,19 @@ if [[ $1 = "-e" || $1 = "--editor" || $1 = "" ]]; then
 
     # Testar se arquivo já existe...
     [[ -f ~/bin/$script ]] && echo -e  "$YELLOW O script $script já existe $NORMAL" && exit 1
+
+    header="#!/usr/bin/env bash
+    # ------------------------------------------------
+    # Script   : $script
+    # Descrição:
+    # Versão   : 0.0.1
+    # Autor    : Vinicius https://github.com/souovan
+    # Data     : $today
+    # Liçenca  : GNU/GPL v3.0
+    # ------------------------------------------------
+    # Uso:
+    # ------------------------------------------------
+    "
 
     echo "$header" > ~/bin/$script
     chmod +x ~/bin/$script
