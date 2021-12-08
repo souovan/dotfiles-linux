@@ -8,7 +8,7 @@
 # Data     : 07/12/2021
 # Liçenca  : GNU/GPL v3.0
 # ------------------------------------------------
-# Uso: cromodoro <on|off>
+# Uso: cromodoro [-h|--help]
 # ------------------------------------------------
 
 # Example of job definition:
@@ -47,6 +47,11 @@ help="
 
 version="0.0.1"
 
+# Variaveis de ambiente necessárias para que o notify-send fucione
+export DISPLAY=:0.0
+export XAUTHORITY="/home/vinicius/.Xauthority"
+export XDG_RUNTIME_DIR="/run/user/1000"
+
 [[ $# -ne 1 ]] && echo "$help" && exit 1
 
 [[ $1 = "-h" || $1 = "--help" || $1 = "" ]] && echo "$help" && exit 1
@@ -55,7 +60,9 @@ version="0.0.1"
 
 [[ $1 -ne "on" || $1 -ne "off" ]] && echo "$help" && exit 1
 
-[[ $1 = "on" ]] && echo -e "$GREEN cronmodoro ligado $NORMAL" && (echo "*/30 * * * * /home/vinicius/bin/notify_pomodoro") | sort -u | crontab - && exit 0
+[[ $1 = "on" ]] && echo -e "$GREEN cronmodoro ligado $NORMAL" \
+&& (echo "*/30 * * * * /home/vinicius/bin/notify_pomodoro") | sort -u | crontab - \
+&& exit 0
 
 [[ $1 = "off" ]] && echo -e "$RED cronmodoro desligado $NORMAL" && crontab -r && exit 0
 
