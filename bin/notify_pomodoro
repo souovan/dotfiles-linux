@@ -15,6 +15,6 @@ export DISPLAY=:0.0
 export XAUTHORITY="/home/$USER/.Xauthority"
 export XDG_RUNTIME_DIR="/run/user/1000"
 # <a target="_blank" href="https://icons8.com/icon/lPmL0NaypRwo/tomato">Tomato</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
-/usr/bin/notify-send -u critical -i /run/media/kiyo/Dados/Fedora/sh/tomato.png POMODORO "Inicio da pausa: $(date +'%H:%M')" \
+/usr/bin/notify-send -u critical -i ~/Downloads/tomato.png POMODORO "Inicio da pausa: $(date +'%H:%M')" \
 && /usr/bin/sleep 5m \
-&& /usr/bin/notify-send -u critical -i /run/media/kiyo/Dados/Fedora/sh/tomato.png POMODORO "Fim da pausa: $(date +'%H:%M')"
+&& /usr/bin/notify-send -u critical -i ~/Downloads/tomato.png POMODORO "Fim da pausa: $(date +'%H:%M')"
