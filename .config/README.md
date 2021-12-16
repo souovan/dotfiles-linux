@@ -21,6 +21,8 @@ cd ~/dotfiles-linux/.config/ && \
 ./install-i3-rofi-polybar.sh
 ```
 
+## !! LOGIN TO CREATE I3WM CONFIG
+
 ```sh
 cd ~/dotfiles-linux && \
 xdg-user-dirs-update && \
