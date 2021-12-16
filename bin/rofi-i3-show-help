@@ -31,6 +31,6 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-help="\nSuper+d Abre o menu de pesquisa de aplicativos\nSuper+q Fecha o aplicativo que estiver com foco\nSuper+Tab Abre menu que exibe aplicativos abertos\nSuper+Shift+q Abre o menu poweroff / restart / logout\nPara mais detalhes verifique o arquivo ~/.config/i3/config"
+help="\nSuper+d Abre o menu de pesquisa de aplicativos\nSuper+<número> (0-9) Abre novas áreas de trabalho\nSuper+q Fecha o aplicativo que estiver com foco\nSuper+Tab Abre menu que exibe aplicativos abertos\nSuper+Shift+q Abre o menu poweroff / restart / logout\nPara mais detalhes verifique o arquivo ~/.config/i3/config"
 
 echo -e $help | rofi -dmenu -p "Atalhos do i3wm"
