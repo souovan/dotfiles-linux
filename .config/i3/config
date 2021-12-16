@@ -111,6 +111,14 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
+# HELP --------------------------------------------------------#
+
+exec $HOME/bin/rofi-i3-help
+
+# Show open windows list
+
+bindsym $mod+Tab exec "rofi -show window"
+
 # resizing ----------------------------------------------------#
 
 bindsym $mod+Control+Up     resize grow   height 5 px or 5 ppt
