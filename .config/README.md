@@ -17,7 +17,7 @@ systemctl reboot
 
 ```sh
 git clone https://github.com/souovan/dotfiles-linux.git && \
-cd dotfiles-linux/.config/i3/ && \
+cd ~/dotfiles-linux/.config/ && \
 ./install-i3-rofi-polybar.sh
 ```
 
