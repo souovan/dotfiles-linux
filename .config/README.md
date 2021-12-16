@@ -32,6 +32,16 @@ cp -Rv .config/i3/wallpaper/* ~/Downloads && \
 systemctl reboot
 ```
 
+# Change rofi theme
+
+```sh
+rofi-theme-selector
+# select theme dracula hit 
+Enter
+# hit 
+Alt+a
+```
+
 #### Instalar aplicativos e utilitários
 
 ```sh
