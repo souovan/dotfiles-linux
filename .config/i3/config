@@ -130,7 +130,7 @@ exec_always --no-startup-id nitrogen --restore
 
 # power-off, restart, logout rofi ----------------------------#
 
-bindsym $mod+Shift+q exec --no-startup-id $HOME/rofi-i3-logout
+bindsym $mod+Shift+q exec --no-startup-id $HOME/bin/rofi-i3-logout
 
 # remove titlebar
 new_window 1pixel
