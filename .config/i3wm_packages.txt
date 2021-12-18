@@ -18,3 +18,5 @@ xfce4-terminal
 thunar
 font-manager
 papirus-icon-theme
+libnotify-bin
+dunst
