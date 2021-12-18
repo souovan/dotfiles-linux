@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # ------------------------------------------------
-# Script   : rofi-i3-show-help
+# Script   : ansi_colors
 # Descrição:
 # Versão   : 1.0.0
 # Autor    : Vinicius https://github.com/souovan
-# Data     : 16/12/2021
+# Data     : 18/12/2021
 # ------------------------------------------------
 # Uso:
 # ------------------------------------------------
@@ -31,6 +31,4 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-help="\nSuper+d Abre o menu de pesquisa de aplicativos\nSuper+<número> (0-9) Abre novas áreas de trabalho\nSuper+q Fecha o aplicativo que estiver com foco\nSuper+Tab Abre menu que exibe aplicativos abertos\nSuper+Shift+q Abre o menu poweroff / restart / logout\nPara mais detalhes verifique o arquivo ~/.config/i3/config"
-
-echo -e $help | rofi -dmenu -p "Atalhos do i3wm"
+echo -e "\nMy ansi colors are\n \e[0;30mblack\e[0m \e[0;33mbrown\e[0m \e[0;37mgray\e[0m \e[0;34mblue\e[0m \e[0;32mgreen\e[0m \e[0;36mcyan\e[0m \e[0;31mred\e[0m \e[0;35mpurple\e[0m \e[1;37mwhite\e[0m \e[1;33myellow\e[0m \e[1;30mdark grey\e[0m \e[1;34mlight blue\e[0m \e[1;32mlight green\e[0m \e[1;36mlight cyan\e[0m \e[1;31mlight red\e[0m \e[1;35mlight purple\e[0m \n"
