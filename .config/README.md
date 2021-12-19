@@ -1,4 +1,6 @@
-# Instalação do i3wm
+# Instalação do i3wm Debian 11
+
+![i3-debian](../imgs/i3-debian.png)
 
 ## !!! Pré-requisito !!!
 
@@ -55,6 +57,8 @@ systemctl reboot
 ***
 
 # Para usar no Fedora i3
+
+![i3-fedora](../imgs/i3-fedora.png)
 
 * Instalar Fedora i3 spin
 
