@@ -1,0 +1,11 @@
+xdg-user-dirs
+arandr
+rofi
+nitrogen
+fontawesome-fonts
+polybar
+compton
+xfce4-terminal
+papirus-icon-theme
+neofetch
+gedit
