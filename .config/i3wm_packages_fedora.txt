@@ -6,6 +6,8 @@ fontawesome-fonts
 polybar
 compton
 xfce4-terminal
+breeze-cursor-theme
+lxappearance
 papirus-icon-theme
 neofetch
 gedit

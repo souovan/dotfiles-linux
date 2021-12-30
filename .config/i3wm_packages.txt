@@ -17,6 +17,7 @@ acpi
 xfce4-terminal
 thunar
 font-manager
+breeze-cursor-theme
 papirus-icon-theme
 libnotify-bin
 dunst
