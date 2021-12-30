@@ -79,7 +79,7 @@ version="1.0.1"
 [[ $1 -ne "on" || $1 -ne "off" ]] && echo "$help" && exit 1
 
 [[ $1 = "on" ]] && echo -e "$GREEN cronmodoro ligado $NORMAL" \
-&& (echo "*/30 * * * * /home/vinicius/bin/notify_pomodoro") | sort -u | crontab - \
+&& (echo "*/30 * * * * /home/$USER/bin/notify_pomodoro") | sort -u | crontab - \
 && exit 0
 
 [[ $1 = "off" ]] && echo -e "$RED cronmodoro desligado $NORMAL" && crontab -r && exit 0
