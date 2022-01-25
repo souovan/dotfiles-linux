@@ -56,6 +56,12 @@ su -c "dnf install -y curl git"
  ```
 * Instalar a Font `Droid Sans Mono Nerd`
 * Clonar os arquivos de configuração do VIM Vundle `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
+* Install Dracula Vim theme
+```bash
+mkdir -p ~/.vim/pack/themes/opt
+cd ~/.vim/pack/themes/opt
+git clone https://github.com/dracula/vim.git dracula &> /dev/null
+```
 * Copiar `.bashrc` e `.vimrc` para a pasta $HOME `~/` renomeando os arquivos originais ex.: `.bashrc.old`
 * No VIM executar o comando `:PluginInstall`
 

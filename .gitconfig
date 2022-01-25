@@ -1,7 +1,7 @@
 [user]
   name = souovan
 	email = souovan@protonmail.com
-	signingkey = BE135805A384804D
+	signingkey = A384804D
 [alias]
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   daily = log --since=yesterday --format=oneline --author=souovan

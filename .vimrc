@@ -82,6 +82,15 @@ let g:airline_theme='deus'
 Plugin 'kien/ctrlp.vim' "Fuzzy finder
 Plugin 'mattn/emmet-vim' "Ctrl+y+, para expandir
 Plugin 'prettier/prettier'
+Plugin 'pedrohdz/vim-yaml-folds' "vim-yaml-folds
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+set foldlevelstart=20
+Plugin 'adrienverge/yamllint' "yaml lint
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
+let g:ale_lint_on_text_changed = 'never'
 
 "Other settings
 set mouse=a "habilita o mouse
