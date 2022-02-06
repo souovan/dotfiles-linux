@@ -29,14 +29,15 @@ RHEL:
 su -c "dnf install -y curl git"
 ```
 
-* Instale os dotfiles:
+Instale os dotfiles:
 
-  ```bash
-  curl -L https://souovan.github.io/install.sh
-  ```
+```bash
+curl -L https://souovan.github.io/install.sh | bash
+```
+
 **REINICIE O TERMINAL**
 
-* Abra o VIM e execute o comando `:PluginInstall`
+Abra o VIM e execute o comando `:PluginInstall`
 
 ---
 
