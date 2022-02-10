@@ -12,29 +12,32 @@
 * Instale o `git`
 
 Debian:
+```bash
+su - 
+usermod -aG sudo <your_user>
+apt install -y curl git
+reboot
 ```
-su -c "apt-get install -y curl git"
+
+Ubuntu:
+```bash
+sudo apt install -y curl git
 ```
+
 RHEL:
-```
+```bash
 su -c "dnf install -y curl git"
 ```
 
-* Instale o Oh-my-bash:
-  
-  ```
-  sh -c "$(curl -fsSL https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh)"
-  ```
-* Instale os dotfiles:
+Instale os dotfiles:
 
-  ``` 
-  git clone https://github.com/souovan/dotfiles-linux.git
-  cd dotfiles-linux
-  ./install.sh
-  ```
-* **REINICIE O TERMINAL**
+```bash
+curl -L https://souovan.github.io/install.sh | bash
+```
 
-* Abra o VIM e execute o comando `:PluginInstall`
+**REINICIE O TERMINAL**
+
+Abra o VIM e execute o comando `:PluginInstall`
 
 ---
 
