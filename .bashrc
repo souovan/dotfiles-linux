@@ -126,3 +126,12 @@ ex ()
     echo "'$1' is not a valid file"
   fi
 }
+
+
+mdv() { 
+  pandoc -f gfm "$@" -t plain | less 
+}
+
+mdw() { 
+  pandoc "$@" | w3m -T text/html 
+}
