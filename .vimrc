@@ -6,6 +6,7 @@ syntax on
 set number
 set encoding=UTF-8
 set guifont=DroidSans\ Mono\ Nerd\ 12
+set colorcolumn=80
 
 "Dracula Theme
 packadd! dracula
