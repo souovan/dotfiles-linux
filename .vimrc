@@ -93,6 +93,8 @@ let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
 let g:ale_lint_on_text_changed = 'never'
 
+Plugin 'myusuf3/numbers.vim' " Plugin para alternar de forma inteligente números das linhas
+
 "Other settings
 set mouse=a "habilita o mouse
 
