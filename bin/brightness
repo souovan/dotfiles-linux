@@ -2,7 +2,7 @@
 # ------------------------------------------------
 # Script   : brightness
 # Descrição: A program to set brightness of multiple monitor
-# Versão   : 1.0.0
+# Versão   : 1.1.0
 # Autor    : Vinicius https://github.com/souovan
 # Data     : 30/12/2021
 # ------------------------------------------------
@@ -31,19 +31,23 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-version="1.0.0"
+version="1.1.0"
 
 help="
     A program to set brightness of multiple monitor
 
-    usage: brightness <brightness-level>
+    USAGE 
+    
+      brightness <brightness-level>
 
-    option:
-    brightness-level     brightness level must be in range 0.1 to 1
+    OPTION
+    
+      brightness-level     brightness level must be in range 0.1 to 1
 
-    optional arguments:
-    -h | --help          show this help message and exit
-    -v | --version       show program's version number and exit
+    OPTIONAL ARGUMENTS
+
+      -h | --help          show this help message and exit
+      -v | --version       show program's version number and exit
 
     (c) 2021 - Vinicius Antonio do Nascimento - https://github.com/souovan 
 "

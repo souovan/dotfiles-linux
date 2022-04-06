@@ -2,7 +2,7 @@
 # ------------------------------------------------
 # Script   : nsp 
 # Descrição: a tool to create new scripts
-# Versão   : 1.1.0
+# Versão   : 1.2.0
 # Autor    : Vinicius https://github.com/souovan
 # Data     : 6/12/2021
 # ------------------------------------------------
@@ -84,18 +84,22 @@ header="#!/usr/bin/env bash
 help="
     A bashscript to create new bashscripts
 
-    usage: nsp [<option>] [<editor_name>] <new_script_name>
-           or
-           nsp [optional arguments]
+    USAGE
+    
+        nsp [<option>] [<editor_name>] <new_script_name>
+                or
+        nsp [optional arguments]
 
-    option:
-    -e | --editor        which editor should the new bashscript be opened with
-                         if no editor was explicit informed as argument of this flag
-                         the bashscript will be opened in nano editor
+    OPTION
 
-    optional arguments:
-    -h | --help          show this help message and exit
-    -v | --version       show program's version number and exit
+        -e | --editor        which editor should the new bashscript be opened with
+                            if no editor was explicit informed as argument of this flag
+                            the bashscript will be opened in nano editor
+
+    OPTIONAL ARGUMENTS
+
+        -h | --help          show this help message and exit
+        -v | --version       show program's version number and exit
 
     (c) 2021 - Vinicius Antonio do Nascimento - https://github.com/souovan 
 " 

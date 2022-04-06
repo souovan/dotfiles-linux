@@ -3,7 +3,7 @@
 # Script   : cronmodoro
 # Descrição: A script that uses cron to do a 
 #            POMODORO timer
-# Versão   : 1.0.1
+# Versão   : 1.1.1
 # Autor    : Vinicius https://github.com/souovan
 # Data     : 07/12/2021
 # ------------------------------------------------
@@ -53,17 +53,21 @@ help="
     A bashscript to create and run a POMODORO timer that runs
     every 30 minutes of every our of every day
 
-    usage: cronmodoro <option>
+    USAGE
+    
+        cronmodoro <option>
 
-    option:
-    on                   turn on the crontab that controls
-                         the POMODORO timer
-    off                  turn off the crontab that controls
-                         the POMODORO timer
+    OPTION
 
-    optional arguments:
-    -h | --help          show this help message and exit
-    -v | --version       show program's version number and exit
+        on                   turn on the crontab that controls
+                            the POMODORO timer
+        off                  turn off the crontab that controls
+                            the POMODORO timer
+
+    OPTIONAL ARGUMENTS
+
+        -h | --help          show this help message and exit
+        -v | --version       show program's version number and exit
 
     (c) 2021 - Vinicius Antonio do Nascimento - https://github.com/souovan
 "
