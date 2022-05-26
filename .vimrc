@@ -104,16 +104,6 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 
-"Mark line and column (makes vim slow)
-"set termguicolors
-"set cursorline
-"set cursorcolumn
-"highlight CursorLine ctermbg=Yellow cterm=bold guibg=#2b2b2b
-"highlight CursorColumn ctermbg=Yellow cterm=bold guibg=#2b2b2b
-
-"Autocomplete vim commands (broken)
-" set wildmode=longest, list, full
-
 "Fix spliting
 set splitbelow splitright
 
@@ -123,36 +113,10 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
-"Remove pipes when windows is splited (doesn't work as spected)
-"set fillchars+=vert:\
-
 "Make adjusting split sizes a bot more friendly
 noremap <silent> <C-Left> :vertical resize +3<CR>
 noremap <silent> <C-Right> :vertical resize -3<CR>
 noremap <silent> <C-Up> :resize +3<CR>
 noremap <silent> <C-Down> :resize +3<CR>
-
-"Change 2 split windows from vert to horiz or horiz to vert (doesn't work as
-"spected)
-"map <Leader>th <C-w>t<C-w>H
-"map <Leader>tk <C-w>t<C-w>K
-
-
-"Open Nerdtree automatically
-"autocmd VimEnter * NERDtree
-
-"let g:NERDTreeGitStatusWithFlags = 1
-"let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-"let g:NERDTreeGitStatusNodeColorization = 1
-"let g:NERDTreeColorMapCustom = {
-"    \ "Staged"   : "",
-"    \ "Modified" : "",
-"    \ "Renamed"  : "",
-"    \ "Untracked": "",
-"    \ "Unmerged" : "",
-"    \ "Dirty"    : "",
-"    \ "Clean"    : "",
-"    \ "Ignored"  : "",
-"    \ }
 
 let g:NERDTree = ['^node_modules$']
