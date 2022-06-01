@@ -10,3 +10,5 @@
   dc = !git diff --cached origin
 [commit]
 	gpgsign = true
+[init]
+        defaultBranch = main
