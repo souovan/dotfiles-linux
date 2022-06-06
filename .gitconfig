@@ -4,6 +4,7 @@
 	signingkey = A384804D
 [alias]
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  lp = log --patch
   daily = log --since=yesterday --format=oneline --author=souovan
   gpg = verify-commit HEAD
   d = !git diff --stat --cached origin
