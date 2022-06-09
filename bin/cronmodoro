@@ -3,11 +3,9 @@
 # Script   : cronmodoro
 # Descrição: A script that uses cron to do a 
 #            POMODORO timer
-# Versão   : 1.1.1
+# Versão   : 1.1.2
 # Autor    : Vinicius https://github.com/souovan
 # Data     : 07/12/2021
-# ------------------------------------------------
-# Uso: cromodoro <on|off>
 # ------------------------------------------------
 
 # MIT License
@@ -49,30 +47,35 @@ YELLOW="\033[1;33m"
 NORMAL="\033[0m"
 GREEN="\033[1;32m"
 
+name="cronmodoro"
+
 help="
-    A bashscript to create and run a POMODORO timer that runs
-    every 30 minutes of every our of every day
+$name ($version) - A bashscript to create and run a POMODORO timer that runs
+every 30 minutes of every our of every day
 
-    USAGE
-    
-        cronmodoro <option>
+USAGE
 
-    OPTION
+    cronmodoro <option>
+       or
+    cronmodoro <optional arguments>
 
-        on                   turn on the crontab that controls
-                            the POMODORO timer
-        off                  turn off the crontab that controls
-                            the POMODORO timer
+OPTION
 
-    OPTIONAL ARGUMENTS
+    on                  turn on the crontab that controls
+                        the POMODORO timer
+    off                 turn off the crontab that controls
+                        the POMODORO timer
 
-        -h | --help          show this help message and exit
-        -v | --version       show program's version number and exit
+OPTIONAL ARGUMENTS
 
-    (c) 2021 - Vinicius Antonio do Nascimento - https://github.com/souovan
+    -h | --help          show this help message and exit
+    -v | --version       show program's version number and exit
+
+Copyright (C) 2021 - Vinicius Antonio do Nascimento - <https://github.com/souovan>
+License: MIT <https://choosealicense.com/licenses/mit/>
 "
 
-version="1.0.1"
+version="1.0.2"
 
 [[ $# -ne 1 ]] && echo "$help" && exit 1
 
