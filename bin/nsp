@@ -2,7 +2,7 @@
 # ------------------------------------------------
 # Script   : nsp 
 # Descrição: a tool to create new scripts
-# Versão   : 1.3.1
+# Versão   : 1.4.1
 # Autor    : Vinicius https://github.com/souovan
 # Data     : 6/12/2021
 # ------------------------------------------------
@@ -43,7 +43,7 @@ name="nsp"
 
 script=$1
 
-version="1.3.1"
+version="1.4.1"
 
 today=$( date +'%d/%m/%Y' )
 
@@ -164,12 +164,34 @@ if [[ $1 = "-e" || $1 = "--editor" || $1 = "" ]]; then
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-#INSERT VARIABLES
-name=-->SCRIPT NAME<--
-version=-->SCRIPT VERSION<--
-help=-->SCRIPT HELP PAGE<-- (EXAMPLE ON <https://gist.github.com/souovan/8579d865389b0e232876a2ec63553a96>)
+# REMOVE COMMENTS AND REPLACE/INSERT CONTENT
+# name=-->SCRIPT NAME<--
+# version=-->SCRIPT VERSION<--
+# help=-->SCRIPT HELP PAGE<--
 
--->SCRIPT LOGIC GOES HERE<--
+# help=-->INSERT A DOUBLE QUOTE HERE<--
+# $name ($version) - SCRIPT SHORT DESCRIPTION
+
+# USAGE
+
+#     SCRIPT_NAME [<options>]
+#             or
+#     SCRIPT_NAME [optional arguments]
+
+# OPTIONS
+
+#     -OPTION1 | --OPTION2   OPTIONS DESCRIPTION
+
+# OPTIONAL ARGUMENTS
+
+#     -h | --help          show this help message and exit
+#     -v | --version       show program's version number and exit
+
+# Copyright (C) $(date +'%Y') - Vinicius Antonio do Nascimento - <https://github.com/souovan>
+# License: MIT <https://choosealicense.com/licenses/mit/>
+# -->INSERT A DOUBLE QUOTE HERE<--
+
+#-->SCRIPT LOGIC GOES HERE<--
 "
 
     echo "$header" > ~/bin/$script
