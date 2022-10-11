@@ -99,10 +99,8 @@ Plugin 'myusuf3/numbers.vim' " Plugin para alternar de forma inteligente número
 set mouse=a "habilita o mouse
 
 " Tab settings
-set expandtab
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
+autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab number autoindent
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab autoindent
 
 "Fix spliting
 set splitbelow splitright
