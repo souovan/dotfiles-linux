@@ -7,8 +7,8 @@
   lp = log --patch
   daily = log --since=yesterday --format=oneline --author=souovan
   gpg = verify-commit HEAD
-  d = !git diff --stat --cached origin
-  dc = !git diff --cached origin
+  d = !git diff --stat --cached
+  dc = !git diff --cached
 [commit]
 	gpgsign = true
 [init]
